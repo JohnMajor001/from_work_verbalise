@@ -10,10 +10,16 @@ rulesBtn.addEventListener('click', showRules);
 document.getElementById('closeRules').addEventListener('click', hideRules);
 
 function showRules() {
-document.getElementById('modal').className = 'modal';
+document.getElementById('modal').className = 'initialModal';
+document.getElementById('modal-container').className = 'initialModal';
+setTimeout(function(){
+  document.getElementById('modal').className = 'modal';
+  document.getElementById('modal-container').className = 'modal-container';
+}, 1);
 }
 function hideRules() {
 document.getElementById('modal').className = 'hidden';
+document.getElementById('modal-container').className = 'initialModal';
 }
 function addItem() {
 noOfTeams += 1;

@@ -5,6 +5,12 @@ p {
   margin-top: 0;
 }
 .modal-container {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+
+
   position: fixed;
   background-color: #fff;
   border: 1px solid white;
@@ -17,10 +23,21 @@ p {
   width: 70%;
   max-width: 400px;
 }
+.initialModal {
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
 .modal:before {
+  opacity: 0.7;
+  transition: opacity .25s ease-in-out;
+ -moz-transition: opacity .25s ease-in-out;
+ -webkit-transition: opacity .25s ease-in-out;
+
   content: '';
   position: fixed;
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0,0,0,.7);
   top:0;
   left:0;
   height: 100%;
@@ -29,6 +46,10 @@ p {
 }
 .hidden {
   display: none;
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
 
 

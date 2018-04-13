@@ -1,6 +1,6 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
-                Rules button - LightBox
+                Rules -
                 Pass Button alert
                 Add More Categories
                 Aesthetics
