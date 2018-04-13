@@ -5,6 +5,7 @@
 
 // Right Before Round Begins
 function roundPrep(team) {
+
   readyBtn.addEventListener('click', roundBegins);
   var heading = document.createElement('div');
   var body = `<span class='roundText'>${team.name}, it's your round.</span><br />
@@ -128,20 +129,7 @@ readyBtn.innerHTML = 'Next Round';
 readyBtn.removeEventListener('click', gotIt);
 readyBtn.addEventListener('click', leadToRoundPrep);
 
-
-
-
-  // What are relevant stats?
-  /*    score from last round
-        Words successfully described = wordsSuccessfullyDescribed
-        Passes used
-        Next Category
-
-
-  // display relevant stats
-  // create event listeners for buttons
   // LATER ON Create button for editing in case mistakes/cheating
-*/
   return;
 }
 
@@ -200,7 +188,7 @@ var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   }
 }
 function mistakes() {
-  alert('You should make this do something useful at some point');
+  alert('This app is so bad and John is so lazy that this button doesn\'t even do anything');
 }
 function leadToRoundPrep() {
   //clear Board
@@ -214,17 +202,30 @@ while(list.firstChild) {
   currentTeam.score = 0;
   currentTeam.roundsPlayed += 1;
   wordsSuccessfullyDescribed.length = 0;
+  readyBtn.removeEventListener('click', leadToRoundPrep);
+  if(currentTeam.position >= toWin) {
+    /* checks if Team won and if so
+                  creates final page with breakdown of game stats,
+                  buttons that will return all variables to normal
+                  brings back to initial screen
+    */
+    // load winning screen
+    var winners = document.createElement('div');
+    var winnersText = `<h1>And the Winner\'s are...</h1>
+                      <h1>${currentTeam.name}!</h1>`;
+    winners.innerHTML = winnersText;
+    list.appendChild(winners);
+
+  readyBtn.addEventListener('click', reset);
+  readyBtn.innerHTML = 'Reset';
+} else {
   whichTeamPlays += 1;
   var newTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
-
-  /*  increment relevant variables
-      clear board
-      checks if Team won and if so
-                creates final page with breakdown of game stats,
-                buttons that will return all variables to normal
-                brings back to initial screen
-      lead back into roundPrep
-  */
-  readyBtn.removeEventListener('click', leadToRoundPrep);
   roundPrep(newTeam);
+  }
+}
+function reset() {
+  alert('Yeah this doesn\'t do anything either');
+  alert('You should fix that');
+  // reset game
 }

@@ -97,8 +97,6 @@ function grabTeamNames() {
           position: 1,
           whichPlayersTurn: 0,
         };
-        console.log(teamObjectsArray.length);
-
       }
 
     }

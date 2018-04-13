@@ -1,4 +1,11 @@
-// NAME VERBALISE?!!!!
+// NAME: VERBALISE?!!!!
+/* Things to do
+                Rules button - LightBox
+                Pass Button alert
+                Add More Categories
+                Aesthetics
+                Reset Button
+                */
 
 var noOfTeams = 0;
 var noOfPlayers = 0;
@@ -9,21 +16,21 @@ var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
 var wordsSuccessfullyDescribed = [];
-
+var toWin = 100;
 
 
 var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
 var whichTeamPlays = 0;
-var timer = 5;
+var timer = 45;
 var categories = [];
 
 var miscellaneous = {
       name: 'Miscellaneous',
       array: ['Existentialism', 'Nihilism', 'Upside Down', 'New Age', 'Utilitarianism', 'Foundationalism', 'Mormonism',
-                  'Scientology', '  Judaism', 'The Holocaust', 'Christianity', 'Buddhism', 'Hinduism', 'Philosophy', 'Satanism',
-                  'Church of England', 'Catholicism', 'Presbyterian', 'Protestantism', 'Eastern Orthodox Church', 'Creationism',
-                  'Anglicanism', 'Something\'s fishy'],
+              'Scientology', 'Judaism', 'The Holocaust', 'Christianity', 'Buddhism', 'Hinduism', 'Philosophy', 'Satanism',
+              'Church of England', 'Catholicism', 'Presbyterian', 'Protestantism', 'Eastern Orthodox Church', 'Creationism',
+              'Anglicanism', 'Something\'s fishy'],
 
 
 };
@@ -83,54 +90,54 @@ var nature = {
 	name: 'Nature',
 	array: ['Peach', 'Pineapple', 'Pear', 'Plum', 'Dragonfruit', 'Bunch of Bannanas', 'Kiwifruit', 'Carrot', 'Potato',
 			'Red onion', 'Oregano', 'Orange', 'Apricot', 'Avocado', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry',
-            'Cucumber', 'Crab apples', 'Boysenberry', 'Currant', 'Cherry Tree', 'Cherimoya',
-            'Chico fruit', 'CloudBerry', 'Coconut', 'Cranberry', 'Damson', 'Date', 'Durian', 'Elderberry',
-            'Feijoa', 'Fig', 'Goji berry', 'Rasin', 'Red grapes', 'Grapefruit', 'Giava', 'Honeyberry', 'Huckleberry',
-            'Jabuticaba', 'Jackfruit', 'Sharonfruit', 'Jambul', 'Jujube', 'Juniper berry', 'Kumquat', 'Lemon',
-            'Lime', 'Loquat','Longan', 'Chili pepper', 'Corn kernel', 'Eggplant', 'Aubergine', 'Olive',
-            'Pea', 'Pumpkin', 'Squash', 'Tomato', 'Prune', 'Plumcot', 'Pomegranate', 'Pomelo', 'Lychee',
-            'Mango', 'Mangosteen', 'Marionberry', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Melon', 'Miracle fruit',
-            'Mulberry', 'Nectarine', 'Nance', 'Blood Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya',
-            'Passionfruit', 'Persimmon', 'Plantain', 'Purple Mangosteen', 'Quince', 'Raspberry', 'Salmonberry',
-            'Rambutan', 'Salal berry', 'Salak', 'Satsuma', 'Soursop', 'Carambola', 'Star fruit', 'Strawberry',
-            'Tamarillo', 'Tamarind', 'Ugli fruit', 'Yuzu', 'Barn Owl', 'Barnacle Goose', 'Swan', 'Black Guillemot',
-            'Blackbird', 'Seagull', 'Blue Tit', 'Robin', 'Brent Goose', 'Bullfinch', 'Buzzard', 'Coal Tit', 'Chaffinch',
-            'Collared Dove', 'Cuckoo', 'Dipper', 'Dunlin', 'Feral Pigeon', 'Grasshopper Warbler', 'Hawk', 'Great Tit',
-            'Partridge', 'Hen', 'Cow', 'Bull', 'Heifer', 'Honey Buzzard', 'House Sparrow', 'Woodpecker', 'Jay', 'Kestrel',
-            'Kingfisher', 'Lapwing', 'Little Gull', 'Long-tailed Duck', 'Magpie', 'Merlin', 'Thrush', 'Moorhen', 'Mallard',
-            'Ostercatcher', 'Pheasant', 'Puffin', 'Pink-footed Goose', 'Peregrine', 'Pied Flycatcher', 'Quail', 'Raven', 'Red Grouse',
-            'Ruddy Duck', 'Sandwich Tern', 'Short-eared Owl', 'Snowy Owl', 'Sparrowhawk', 'Starling', 'Swallow', 'Skylark', 'Turtle Dove',
-            'French Hen', 'Woodcock', 'Wren', 'Afghan Hound', 'Airedale Terrier', 'American Foxhound', 'Pit Bull', 'Eskimo Dog',
-            'Labrador', 'German Shepherd', 'French bulldog', 'Golden Retriever', 'Beagle', 'Poodle', 'Rottweiler', 'Pointers',
-            'Siberian Husky', 'Dachshund', 'Great Dane', 'Pembroke Welsh Corgy', 'Doberman Pinschers', 'Australian Shepherds',
-            'Shih Tzu', 'Boston Terrier', 'Havanese', 'Spaniel', 'Pug', 'Chihuahuas', 'Basset Hound', 'Border Colly', 'Rhodesian Ridgeback',
-            'St. Bernards', 'Scottish Terrier', 'Dalmation', 'Irish Wolfhound', 'Greyhound', 'Chow Chows', 'Black and Tan Coonhounds',
-            'Pharaoh Hound', 'English Foxhound', 'Maine Coon', 'Persian Cat', 'Siamese Cat', 'Sphynx Cat', 'Lynx', 'Burmese Cat',
-            'Oriental Shorthair', 'Savannah cat', 'Egyptian Mau', 'Havana Brown', 'Pixie-bob', 'Stallion', 'Mare', 'Calf', 'Donkey',
-            'Siamese Fighting Fish', 'Guppy', 'Carp', 'Goldfish', 'Arapaima', 'Wels Catfish', 'Blobfish', 'Cobia', 'Ocean Sunfish',
-            'Angelfish', 'Northern Pike', 'Angler', 'Suckermouth Catfish', 'Tench', 'Rainbow Trout', 'Perch', 'Mackarel', 'Palette Surgeonfish',
-            'Great White Shark', 'Giant Oarfish', 'Common Roach', 'Mosquito Fish', 'Bass', 'Greenland Shark', 'Basking Shark',
-            'Goblin Shark', 'Whale Shark', 'Dolphin', 'Blue Whale', 'Orca', 'Humpback Whale', 'Sperm Whale', 'Narwhal', 'Gray Whale',
-            'Dwarf Sperm Whale', 'Anaconda', 'Vipers', 'Python', 'Black Mamba', 'Taipan', 'Cobra', 'Rattlesnake', 'Kingsnakes',
-            'Garter Snake', 'Boa', 'Elephant Trunk Snake', 'False Cobra', 'Mole Snake', 'Badger', 'Fox', 'Tortoise', 'Turtle',
-            'Bandicoot', 'Mole', 'Tapeworm', 'Guinea Pig', 'Chameleon', 'Elephant', 'Woolly Mammoth', 'Saber-toothed Tiger', 'Lion',
-            'White Tiger', 'Snow Leopard', 'Cheetah', 'Panther', 'Lemur', 'Monkey', 'Bonobo', 'Gorilla', 'Orangutan', 'Human',
-            'Chimpanzee', 'Gibbon', 'Red Panda', 'Neanderthal', 'Proconsul', 'Velvet Monkey', 'Baboon', 'Guinea Baboon', 'Green Monkey',
-            'Red-faced Spider Monkey', 'Black Snub-nosed Monkey', 'Silvery Lutung', 'Giant Panda', 'Polar Bear', 'Brown Bear',
-            'American Black Bear', 'Sloth', 'Ursinae', 'Spectacled Bear', 'Atlas Bear', 'Blue Bear', 'Hail Stones', 'Snow', 'Twister',
-            'Whirlwind', 'Sleet', 'Tornado', 'Whirlpool', 'Diplodocus', 'Stegosaurus', 'Triceratops', 'Pterodactyl', 'Tyrannosaurus Rex',
-            'Theropod', 'Velociraptor', 'Iguana', 'Crocodile', 'Aligator', 'Gecko', 'Salamander', 'Newt', 'Horned Lizard', 'Bearded Dragon',
-            'Archaeopteryx', 'Hammerhead Shark', 'Penguin', 'Emperor Penguin', 'Yellow-eyed Penguin', 'King Penguin', 'Little Blue Penguin',
-            'Dodo', 'Dire wolf', 'Ankylosaurus', 'Crested Penguin', 'Megabats', 'Flying Foxes', 'Vampire Bat', 'Goat', 'Pig', 'Sow', 'Piglet',
-            'Rat', 'Mouse', 'Glass Frog', 'Poison dart frog', 'Fire-bellied Toad', 'Tomato Frog', 'Electric Eel', 'Mongoose', 'Monk Fish',
-            'Meerkat', 'Butterfly', 'Moth', 'Beetle', 'Honeybee', 'Army Ants', 'Mosquito', 'LadyBird', 'Fly', 'Flea', 'Bed bug', 'Cricket',
-            'Termite', 'Mantis', 'Dragonfly', 'Earwig', 'Louse', 'Aphid', 'Cicada', 'Mole Cricket', 'Jerusalem Cricket', 'Mayfly',
-            'Snakefly', 'Azalea', 'Balloon flower', 'Balsam', 'Begonia', 'Bellflower', 'Blackeyed Susan', 'Bleeding Heart', 'Buttercup',
-            'Butterfly Weed', 'California Poppy', 'Castor Bean', 'Chrysanthemum', 'Sage', 'Daisy', 'Foxglove', 'Geranium', 'Glory of the Snow',
-            'Goatsbeard', 'Hollyhock', 'Hyacinth', 'Runner Bean', 'Fin', 'Rapeseed', 'Wheat', 'Grass', 'Cannabis', 'Japanese Knotweed', 'Dandelion',
-            'Algae', 'Toadstool', 'Mushroom', 'Celery', 'Cabbage', 'Chickweed', 'Spinach', 'Turnip', 'Conifer', 'Palm Tree', 'Deciduous shrub', 'Northern Red Oak',
-            'Almond', 'Peanut', 'Pistachio', 'Pecan', 'Bay laurel', 'European Beech', 'Brazil Nut', 'Weeping Willow', 'Silver birch', 'Camphor Tree',
-            'Sugar Maple'],
+          'Cucumber', 'Crab apples', 'Boysenberry', 'Currant', 'Cherry Tree', 'Cherimoya',
+          'Chico fruit', 'CloudBerry', 'Coconut', 'Cranberry', 'Damson', 'Date', 'Durian', 'Elderberry',
+          'Feijoa', 'Fig', 'Goji berry', 'Rasin', 'Red grapes', 'Grapefruit', 'Giava', 'Honeyberry', 'Huckleberry',
+          'Jabuticaba', 'Jackfruit', 'Sharonfruit', 'Jambul', 'Jujube', 'Juniper berry', 'Kumquat', 'Lemon',
+          'Lime', 'Loquat','Longan', 'Chili pepper', 'Corn kernel', 'Eggplant', 'Aubergine', 'Olive',
+          'Pea', 'Pumpkin', 'Squash', 'Tomato', 'Prune', 'Plumcot', 'Pomegranate', 'Pomelo', 'Lychee',
+          'Mango', 'Mangosteen', 'Marionberry', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Melon', 'Miracle fruit',
+          'Mulberry', 'Nectarine', 'Nance', 'Blood Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya',
+          'Passionfruit', 'Persimmon', 'Plantain', 'Purple Mangosteen', 'Quince', 'Raspberry', 'Salmonberry',
+          'Rambutan', 'Salal berry', 'Salak', 'Satsuma', 'Soursop', 'Carambola', 'Star fruit', 'Strawberry',
+          'Tamarillo', 'Tamarind', 'Ugli fruit', 'Yuzu', 'Barn Owl', 'Barnacle Goose', 'Swan', 'Black Guillemot',
+          'Blackbird', 'Seagull', 'Blue Tit', 'Robin', 'Brent Goose', 'Bullfinch', 'Buzzard', 'Coal Tit', 'Chaffinch',
+          'Collared Dove', 'Cuckoo', 'Dipper', 'Dunlin', 'Feral Pigeon', 'Grasshopper Warbler', 'Hawk', 'Great Tit',
+          'Partridge', 'Hen', 'Cow', 'Bull', 'Heifer', 'Honey Buzzard', 'House Sparrow', 'Woodpecker', 'Jay', 'Kestrel',
+          'Kingfisher', 'Lapwing', 'Little Gull', 'Long-tailed Duck', 'Magpie', 'Merlin', 'Thrush', 'Moorhen', 'Mallard',
+          'Ostercatcher', 'Pheasant', 'Puffin', 'Pink-footed Goose', 'Peregrine', 'Pied Flycatcher', 'Quail', 'Raven', 'Red Grouse',
+          'Ruddy Duck', 'Sandwich Tern', 'Short-eared Owl', 'Snowy Owl', 'Sparrowhawk', 'Starling', 'Swallow', 'Skylark', 'Turtle Dove',
+          'French Hen', 'Woodcock', 'Wren', 'Afghan Hound', 'Airedale Terrier', 'American Foxhound', 'Pit Bull', 'Eskimo Dog',
+          'Labrador', 'German Shepherd', 'French bulldog', 'Golden Retriever', 'Beagle', 'Poodle', 'Rottweiler', 'Pointers',
+          'Siberian Husky', 'Dachshund', 'Great Dane', 'Pembroke Welsh Corgy', 'Doberman Pinschers', 'Australian Shepherds',
+          'Shih Tzu', 'Boston Terrier', 'Havanese', 'Spaniel', 'Pug', 'Chihuahuas', 'Basset Hound', 'Border Colly', 'Rhodesian Ridgeback',
+          'St. Bernards', 'Scottish Terrier', 'Dalmation', 'Irish Wolfhound', 'Greyhound', 'Chow Chows', 'Black and Tan Coonhounds',
+          'Pharaoh Hound', 'English Foxhound', 'Maine Coon', 'Persian Cat', 'Siamese Cat', 'Sphynx Cat', 'Lynx', 'Burmese Cat',
+          'Oriental Shorthair', 'Savannah cat', 'Egyptian Mau', 'Havana Brown', 'Pixie-bob', 'Stallion', 'Mare', 'Calf', 'Donkey',
+          'Siamese Fighting Fish', 'Guppy', 'Carp', 'Goldfish', 'Arapaima', 'Wels Catfish', 'Blobfish', 'Cobia', 'Ocean Sunfish',
+          'Angelfish', 'Northern Pike', 'Angler', 'Suckermouth Catfish', 'Tench', 'Rainbow Trout', 'Perch', 'Mackarel', 'Palette Surgeonfish',
+          'Great White Shark', 'Giant Oarfish', 'Common Roach', 'Mosquito Fish', 'Bass', 'Greenland Shark', 'Basking Shark',
+          'Goblin Shark', 'Whale Shark', 'Dolphin', 'Blue Whale', 'Orca', 'Humpback Whale', 'Sperm Whale', 'Narwhal', 'Gray Whale',
+          'Dwarf Sperm Whale', 'Anaconda', 'Vipers', 'Python', 'Black Mamba', 'Taipan', 'Cobra', 'Rattlesnake', 'Kingsnakes',
+          'Garter Snake', 'Boa', 'Elephant Trunk Snake', 'False Cobra', 'Mole Snake', 'Badger', 'Fox', 'Tortoise', 'Turtle',
+          'Bandicoot', 'Mole', 'Tapeworm', 'Guinea Pig', 'Chameleon', 'Elephant', 'Woolly Mammoth', 'Saber-toothed Tiger', 'Lion',
+          'White Tiger', 'Snow Leopard', 'Cheetah', 'Panther', 'Lemur', 'Monkey', 'Bonobo', 'Gorilla', 'Orangutan', 'Human',
+          'Chimpanzee', 'Gibbon', 'Red Panda', 'Neanderthal', 'Proconsul', 'Velvet Monkey', 'Baboon', 'Guinea Baboon', 'Green Monkey',
+          'Red-faced Spider Monkey', 'Black Snub-nosed Monkey', 'Silvery Lutung', 'Giant Panda', 'Polar Bear', 'Brown Bear',
+          'American Black Bear', 'Sloth', 'Ursinae', 'Spectacled Bear', 'Atlas Bear', 'Blue Bear', 'Hail Stones', 'Snow', 'Twister',
+          'Whirlwind', 'Sleet', 'Tornado', 'Whirlpool', 'Diplodocus', 'Stegosaurus', 'Triceratops', 'Pterodactyl', 'Tyrannosaurus Rex',
+          'Theropod', 'Velociraptor', 'Iguana', 'Crocodile', 'Aligator', 'Gecko', 'Salamander', 'Newt', 'Horned Lizard', 'Bearded Dragon',
+          'Archaeopteryx', 'Hammerhead Shark', 'Penguin', 'Emperor Penguin', 'Yellow-eyed Penguin', 'King Penguin', 'Little Blue Penguin',
+          'Dodo', 'Dire wolf', 'Ankylosaurus', 'Crested Penguin', 'Megabats', 'Flying Foxes', 'Vampire Bat', 'Goat', 'Pig', 'Sow', 'Piglet',
+          'Rat', 'Mouse', 'Glass Frog', 'Poison dart frog', 'Fire-bellied Toad', 'Tomato Frog', 'Electric Eel', 'Mongoose', 'Monk Fish',
+          'Meerkat', 'Butterfly', 'Moth', 'Beetle', 'Honeybee', 'Army Ants', 'Mosquito', 'LadyBird', 'Fly', 'Flea', 'Bed bug', 'Cricket',
+          'Termite', 'Mantis', 'Dragonfly', 'Earwig', 'Louse', 'Aphid', 'Cicada', 'Mole Cricket', 'Jerusalem Cricket', 'Mayfly',
+          'Snakefly', 'Azalea', 'Balloon flower', 'Balsam', 'Begonia', 'Bellflower', 'Blackeyed Susan', 'Bleeding Heart', 'Buttercup',
+          'Butterfly Weed', 'California Poppy', 'Castor Bean', 'Chrysanthemum', 'Sage', 'Daisy', 'Foxglove', 'Geranium', 'Glory of the Snow',
+          'Goatsbeard', 'Hollyhock', 'Hyacinth', 'Runner Bean', 'Fin', 'Rapeseed', 'Wheat', 'Grass', 'Cannabis', 'Japanese Knotweed', 'Dandelion',
+          'Algae', 'Toadstool', 'Mushroom', 'Celery', 'Cabbage', 'Chickweed', 'Spinach', 'Turnip', 'Conifer', 'Palm Tree', 'Deciduous shrub', 'Northern Red Oak',
+          'Almond', 'Peanut', 'Pistachio', 'Pecan', 'Bay laurel', 'European Beech', 'Brazil Nut', 'Weeping Willow', 'Silver birch', 'Camphor Tree',
+          'Sugar Maple'],
         };
 // Order of Categories on the board is determined by this
 categories.push(objects);
