@@ -14,7 +14,7 @@ var wordsSuccessfullyDescribed = [];
 
 var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
-var whichTeamPlays = 1;
+var whichTeamPlays = 0;
 var timer = 5;
 var categories = [];
 
@@ -29,8 +29,8 @@ var miscellaneous = {
 };
 var world = {
 	name: 'World',
-	array: ['Globe', 'Mars', 'Jupiter', 'Uranus', 'Neptune', 'Saturn', 'Mercury', 'Venus', 'Earth', 'Pluto', 'Star',
-					'Europa', 'Pakistan', 'Kazakhstan', 'Uzbekistan', 'Afghanistan', 'Caucasus', 'Russia', 'Kyrgyzstan', 'Tajikstan',
+	array: ['Village', 'Town', 'Cul de Sac', 'Globe', 'Mars', 'Jupiter', 'Uranus', 'Neptune', 'Saturn', 'Mercury', 'Venus', 'Earth',
+          'Pluto', 'Star', 'Europa', 'Pakistan', 'Kazakhstan', 'Uzbekistan', 'Afghanistan', 'Caucasus', 'Russia', 'Kyrgyzstan', 'Tajikstan',
 					'Turkmenistan', 'Iran', 'India', 'Azerbaijan', 'Kurdistan', 'Egypt', 'Kenya', 'South Africa', 'Swaziland', 'Zimbabwe',
 					'Chad', 'Madagascar', 'Sudan', 'Republic of the Congo', 'Democratic Republic of the Congo', 'Sierra Leone', 'Ghana', 'Botswana',
 					'Ethiopia', 'Zambia', 'Uganda', 'Algeria', 'Angola', 'Rwanda', 'Cameroon', 'Somalia', 'Tanzania', 'Senegal', 'Libya',
@@ -136,6 +136,8 @@ var nature = {
 categories.push(objects);
 categories.push(actions);
 categories.push(nature);
+categories.push(world);
+categories.push(miscellaneous);
 
 
 // Back up arrays
@@ -153,10 +155,20 @@ var backUpNature = [];
 for(let poop = 0; poop < nature.array.length; poop++) {
 	backUpNature.push(nature.array[poop]);
 }
+var backUpWorld = [];
+for(let poop = 0; poop < world.array.length; poop++) {
+	backUpWorld.push(world.array[poop]);
+}
+var backUpMisc = [];
+for(let poop = 0; poop < miscellaneous.array.length; poop++) {
+	backUpMisc.push(miscellaneous.array[poop]);
+}
 
 backUpCategories.push(backUpObjects);
 backUpCategories.push(backUpActions);
 backUpCategories.push(backUpNature);
+backUpCategories.push(backUpWorld);
+backUpCategories.push(backUpMisc);
 
 /*function team(playerNames, numberOfPlayers, score, position) {
   this.playerNames = playerNames;

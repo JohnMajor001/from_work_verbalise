@@ -8,7 +8,7 @@ function roundPrep(team) {
   readyBtn.addEventListener('click', roundBegins);
   var heading = document.createElement('div');
   var body = `<span class='roundText'>${team.name}, it's your round.</span><br />
-              <span class='roundText'>${team.players[team.whichPlayersTurn]}, you're describing.</span><br />
+              <span class='roundText'>${team.players[(team.whichPlayersTurn)%team.players.length]}, you're describing.</span><br />
               <span class='roundText'>Your category is ${categories[((team.position - 1)%categories.length)].name}</span>`;
   heading.innerHTML = body;
   list.appendChild(heading);
@@ -115,7 +115,7 @@ function roundEnds() {
     <th>Total Score</th>
     <td>${currentTeam.position - 1}</td>
   </tr>
-    <th>Up-coming Category</th>
+    <th>Your Next Category</th>
     <td>${catToUse.name}</td>`;
     table.innerHTML = stats;
     list.appendChild(table);

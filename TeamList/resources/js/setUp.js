@@ -79,8 +79,8 @@ function grabTeamNames() {
 // alert each team followed by how many players then each player's name
 // loop through playerNamesArray to form new array
 // create team Objects
-    for(i=0; i < noOfTeams - 1; i++) {
-      var numberOfPlayers = list.children[0].querySelector('div').children.length;
+    for(i=0; i < noOfTeams; i++) {
+      var numberOfPlayers = list.children[i].querySelector('div').children.length;
       var specificTeamPlayerNames = [];
 
         for(var k=numberOfPlayers - 1; k >= 0; k--) {
@@ -97,6 +97,8 @@ function grabTeamNames() {
           position: 1,
           whichPlayersTurn: 0,
         };
+        console.log(teamObjectsArray.length);
+
       }
 
     }
@@ -107,6 +109,6 @@ function grabTeamNames() {
   addItemBtn.removeEventListener('click', addItem);
   // addItemBtn.addEventListener('click', rules);
   readyBtn.removeEventListener("click", grabTeamNames);
-  roundPrep(teamObjectsArray[whichTeamPlays]);
+  roundPrep(teamObjectsArray[whichTeamPlays%teamObjectsArray.length]);
   }
 }
