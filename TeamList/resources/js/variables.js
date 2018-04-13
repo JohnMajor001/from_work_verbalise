@@ -1,7 +1,7 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
-                Rules -
-                Pass Button alert
+                Rules - add content
+                Pass Button alert: comes immediately, fades out after 5 seconds?
                 Add More Categories
                 Aesthetics
                 Reset Button
@@ -26,12 +26,33 @@ var whichTeamPlays = 0;
 var timer = 45;
 var categories = [];
 
+// Niche Categories
+var internets = {
+    name: 'Internet Culture',
+    array: ['Memes', 'White-guilt', 'Black Lives Matter', 'All Lives Matter', 'Hashtag', 'Twitter', 'Facebook', 'Bebo', 'MySpace',
+            'DailyMash', 'Liberal Tears', 'Podcast', 'Pepe the Frog', 'Le', 'Over 9000', 'One Punch', 'Shrek is Love', 'Laughing out Loud',
+            'At the moment', 'Shaking my head', 'To be fair', 'What the Fuck?', 'Trolling', 'Shitposting', 'Social Justice Warrior',
+            'Pewdiepie', 'Baader-Meinhof Phenomenon', 'Vaccination', '#MeToo', '#NoMakeUpSelfie', 'Selfies', 'Photoshop', 'Be Like Bill',
+            'Triggered', 'FemiNazi', 'I don\'t like sand', 'Comic Sans', 'Lorom Ipsum', 'Grumpy Cat', 'Kylo-Ren\'s Tri-lightsaber', 'Solo shot first',
+            'Expendable Henchman', 'PhilosoRaptor', 'RickRolling', 'Chain-messages', 'Nigerian Prince Emails', '9/11', 'Bush inside Job', 'MarySue',
+            'White Knight', 'BetaMale', 'Irony', 'More Cowbell', 'Wazaaaaa', 'Fuck the Mayweathers', 'Shrek is Life', 'It\'s not Ogre till it\'s Ogre',
+            'U mad Bro?', 'U even lift Bro?', 'Doge', 'Leekspin', 'Spitroasting', 'Tony Danza', 'All your base are belong to us', 'Laser Sword',
+            'Good Guy Greg', 'Spinning Ballerina illusion', 'Overly Attached Girlfriend', 'Gangnam Style', 'Peel the Avocado', 'Avocado Toast',
+            'NoFap', 'Pornography', 'Procrastination', 'Surfing', 'LOLcats', 'Keyboard Warrior', 'Ermahgerd', 'The Double Rainbow', 'Masterbation',
+            'Epic Fail', 'NONONO cat', 'Pikachu use thundersmash', 'Fuck Stacey', 'Numa Numa Dance', 'Humans of New York', 'Humans of the Sesh',
+            'LadBible', 'Lizzy the Lezzy', 'Achmed the Dead Terrorist', '#JeSuisCharlie', '#IbelieveHer', 'Trending', 'Chuck Norris', 'Charlie bit me!',
+            'Ask a Ninja', 'Nope, Chuck Testa!', 'Will it blend?', 'Engrish Funny', 'The TreadMill Dance', 'Nuts the Squirrel', 'One Red Paperclip',
+            'FlatEarth', 'Australia', 'Jizz In My Pants', 'Demotivational Posters', 'The Hamsterdance', 'Dramatic Chipmunk', 'Coke and Mentos',
+            'Elf On the Shelf'],
+};
+
+// Standard Categories
 var miscellaneous = {
       name: 'Miscellaneous',
       array: ['Existentialism', 'Nihilism', 'Upside Down', 'New Age', 'Utilitarianism', 'Foundationalism', 'Mormonism',
               'Scientology', 'Judaism', 'The Holocaust', 'Christianity', 'Buddhism', 'Hinduism', 'Philosophy', 'Satanism',
               'Church of England', 'Catholicism', 'Presbyterian', 'Protestantism', 'Eastern Orthodox Church', 'Creationism',
-              'Anglicanism', 'Something\'s fishy'],
+              'Anglicanism', 'Something\'s fishy', 'Science', 'Actually', 'Lovingly', 'Pro-life', 'Pro-choice'],
 
 
 };
@@ -85,7 +106,7 @@ var actions = {
 				'Chasing', 'Shadowing', 'Stalking', 'Going', 'Leaving', 'Exiting', 'Mourning', 'Disappearing', 'Calling',
 				'Reaching', 'Hopping', 'Waving', 'Circling', 'Driving', 'Laughing', 'Making', 'Hiding', 'Looking', 'Courting',
 				'Humming', 'Holding', 'Counting', 'Numbering', 'Dancing', 'Lying', 'Questioning', 'Reversing', 'Tailing',
-				'Theorising', 'Coding', 'Starting', 'Beginning', 'Ending', 'Trying', 'Recording', 'Pouring', 'Scattering'],
+				'Theorising', 'Coding', 'Starting', 'Beginning', 'Ending', 'Trying', 'Recording', 'Pouring', 'Scattering', 'Vlogging'],
 			};
 var nature = {
 	name: 'Nature',
