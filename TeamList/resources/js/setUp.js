@@ -2,10 +2,19 @@ window.onload = function() {
 
 // add Item button can add children
 addItemBtn.addEventListener("click", addItem);
-
 // getting team names as long as more than 2 are created
 readyBtn.addEventListener("click", grabTeamNames);
+// add ruleBtn event listener
+rulesBtn.addEventListener('click', showRules);
+// close rules btn event addEventListener
+document.getElementById('closeRules').addEventListener('click', hideRules);
 
+function showRules() {
+document.getElementById('modal').className = 'modal';
+}
+function hideRules() {
+document.getElementById('modal').className = 'hidden';
+}
 function addItem() {
 noOfTeams += 1;
 noOfPlayers += 2;
@@ -103,9 +112,7 @@ function grabTeamNames() {
   while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
-  addItemBtn.innerHTML = 'Rules';
-  addItemBtn.removeEventListener('click', addItem);
-  // addItemBtn.addEventListener('click', rules);
+  addItemBtn.className += ' hidden';
   readyBtn.removeEventListener("click", grabTeamNames);
   roundPrep(teamObjectsArray[whichTeamPlays%teamObjectsArray.length]);
   }

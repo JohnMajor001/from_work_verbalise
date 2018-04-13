@@ -1,18 +1,64 @@
 html {
   font-size: 16px;
-
 }
+p {
+  margin-top: 0;
+}
+.modal-container {
+  position: fixed;
+  background-color: #fff;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: black;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 70%;
+  max-width: 400px;
+}
+.modal:before {
+  content: '';
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  transition: all 500ms ease-out;
+}
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+/*
+
+.neonTrees {
+background-image: url('../images/neontrees.jpg');
+background-size: cover;
+}*/
 body {
   font-family: helvetica;
   color: white;
   width: 100%;
-  background-image: url("../images/nature.jpg");
+
+  background-image: url('../images/nature.jpg');
+  background-size: cover;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   padding: 3rem;
+  background-repeat: no-repeat;
 }
+
+
 h1 {
   font-size: 3rem;
   padding: 2rem 0;

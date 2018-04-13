@@ -12,6 +12,7 @@ var noOfPlayers = 0;
 var addItemBtn = document.getElementById('addItemBtn');
 var list = document.getElementById('list');
 var readyBtn = document.getElementById('readyBtn');
+var rulesBtn = document.getElementById('rules');
 var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
