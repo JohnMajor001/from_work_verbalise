@@ -44,7 +44,8 @@ var rulesNo1 = `<h1>Overview</h1>
                 depending on your role at the time.</p>`;
 var rulesNo2 = `<h1>Each Round</h1>
                 <p>Only one team moves during each round.</p><br />
-                <p>A player will be designated the \'describer\' and will race against the clock to describe the word on the screen to their team mate(s).
+                <p>A player will be designated the \'describer\' and will race against the clock to
+                 describe the word on the screen to their team mate(s).
                 If the team successfully guesses the word, you can click 'Got it!' and hurry to get the next word!
                 </p><br />
                 <p>The more words you successfully describe/guess within the alloted time the
