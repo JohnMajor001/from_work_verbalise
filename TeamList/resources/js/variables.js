@@ -1,15 +1,20 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
+                Favicon
                 Rules - add images
-                Desgin drinking rules to implement
+                Design drinking rules to implement
                 Pass Button alert: comes immediately underneath button, fades out after 5 seconds?
+                3, 2, 1 countdown;
                 Add More Categories
                 Aesthetics
                 Settings Page
+                Give break down of game at final screen
+                Animation to show teams moving forward?
+                Back to homepage
                 Reset Button
                 REMOVE EVENT LISTENER OF PASSED ON SOMETHING AMISS BUTTON
                 */
-
+var ifDrink = false;
 var noOfTeams = 0;
 var noOfPlayers = 0;
 var addItemBtn = document.getElementById('addItemBtn');
@@ -46,9 +51,9 @@ var rulesNo2 = `<h1>Each Round</h1>
                 higher your team's score and the faster you will reach the finish line!</p><br />`;
 var rulesNo3 = `<h1>The Don'ts</h1>
                 <p>The describer may <strong style='text-decoration: underline;'>NOT</strong></p><br />
-                <ul>
+                <ul class='rulesList'>
                   <li>Say any direct part of the word itself</li>
-                    <ul>
+                    <ul class='rulesList'>
                       <li>E.g. you may not describe the word 'fishhook' as 'a tool for hooking fish'</li>
                     </ul>
                   <li>Use 'Sounds like', 'Rhymes with' or 'Ends/Starts with'</li>
@@ -56,7 +61,7 @@ var rulesNo3 = `<h1>The Don'ts</h1>
                 </ul>`;
 var rulesNo4 = `<h1>The Do's</h1>
                   <p>You <strong style='text-decoration: underline;'>MAY</strong></p><br />
-                <ul>
+                <ul class='rulesList'>
                 <li>Be as articulate as possible</li>
                 <li>Gesture and point</li>
                 <li>Sing/hum</li>

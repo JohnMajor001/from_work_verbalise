@@ -1,16 +1,11 @@
-// page loads with: what catagory is coming up -
-// do we have to change arrays into objects for this? So that categories is an array of objects?
-//
-
-
 // Right Before Round Begins
 function roundPrep(team) {
 
   readyBtn.addEventListener('click', roundBegins);
   var heading = document.createElement('div');
   var body = `<span class='roundText'><t class='teamColor'>${team.name}</t>, it's your round.</span><br />
-              <span class='roundText'><t class='describerColor'>${team.players[(team.whichPlayersTurn)%team.players.length]}</t>,
-              you're describing.</span><br />
+              <span class='roundText'><t class='describerColor'>
+              ${team.players[(team.whichPlayersTurn)%team.players.length]}</t>, you're describing.</span><br />
               <span class='roundText'>Your category is <t class='categoryColor'>${categories[((team.position - 1)%categories.length)].name}</t></span>`;
   heading.innerHTML = body;
   list.appendChild(heading);
@@ -94,7 +89,7 @@ function roundEnds() {
     <td>${currentTeam.name}</th>
   </tr>
   <tr>
-    <th>Words Successfully Described</th>
+    <th>Described Successfully</th>
     <td>${wordsSuccessfullyDescribed}</td>
   </tr>
   <tr>

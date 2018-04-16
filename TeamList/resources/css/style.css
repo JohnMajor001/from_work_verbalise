@@ -82,8 +82,8 @@ h1 {
 #rulesContent p, #rulesContent li, input {
   font-family: 'Architects Daughter', cursive;
 }
-#rulesContent li {
-  list-style-type: square;
+.rulesList li {
+  list-style-type: circle;
 }
 li {
   display: flex;
