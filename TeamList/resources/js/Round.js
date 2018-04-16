@@ -8,9 +8,10 @@ function roundPrep(team) {
 
   readyBtn.addEventListener('click', roundBegins);
   var heading = document.createElement('div');
-  var body = `<span class='roundText'>${team.name}, it's your round.</span><br />
-              <span class='roundText'>${team.players[(team.whichPlayersTurn)%team.players.length]}, you're describing.</span><br />
-              <span class='roundText'>Your category is ${categories[((team.position - 1)%categories.length)].name}</span>`;
+  var body = `<span class='roundText'><t class='teamColor'>${team.name}</t>, it's your round.</span><br />
+              <span class='roundText'><t class='describerColor'>${team.players[(team.whichPlayersTurn)%team.players.length]}</t>,
+              you're describing.</span><br />
+              <span class='roundText'>Your category is <t class='categoryColor'>${categories[((team.position - 1)%categories.length)].name}</t></span>`;
   heading.innerHTML = body;
   list.appendChild(heading);
   if(document.getElementById('passBtn')) {
@@ -75,18 +76,6 @@ function roundBegins() {
     setTimeout(stopUpdating, timeLength);
 }
 
-    /*
-    while(list.firstChild) {
-      list.removeChild(list.firstChild);
-    }
-    list.innerHTML = timesUpMessage;
-   readyBtn.removeEventListener('click', gotIt);
-   readyBtn.addEventListener('click', roundEnds);
-   readyBtn.innerHTML ='Continue';
-   var mistakesWereMade = document.getElementById('passBtn');
-   mistakesWereMade.removeEventListener('click', passed);
-   mistakesWereMade.innerHTML = ' '; */
-
 function roundEnds() {
      //clear Board
   while(list.firstChild) {
@@ -123,7 +112,7 @@ function roundEnds() {
   // Change buttons
 var mistakesWereMade = document.getElementById('passBtn');
 mistakesWereMade.addEventListener('click', mistakes);
-mistakesWereMade.innerHTML = 'Something amiss?';
+mistakesWereMade.innerHTML = 'Help';
 
 readyBtn.innerHTML = 'Next Round';
 readyBtn.removeEventListener('click', gotIt);
@@ -134,6 +123,7 @@ readyBtn.addEventListener('click', leadToRoundPrep);
 }
 
 function gotIt() {
+  readyBtn.removeEventListener('click', gotIt);
   var wordBox = document.getElementById('spanWithWordToDescribe');
   var currentWord = wordBox.innerHTML;
   var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];       // Add Modulus logic here similar to below?
@@ -156,6 +146,9 @@ function gotIt() {
 
   wordBox.innerHTML = newWord;
   currentTeam.score++;
+  setTimeout(function() {
+    readyBtn.addEventListener('click', gotIt);
+  }, 600);
 }
 
 

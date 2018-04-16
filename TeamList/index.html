@@ -4,21 +4,32 @@
   <title>TeamList</title>
   <link type="text/css" rel="stylesheet" href="./resources/css/reset.css">
   <link type="text/css" rel="stylesheet" href="./resources/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Luckiest+Guy|Press+Start+2P" rel="stylesheet">
 </head>
 <body>
-<button class="btn" type="button" id="rules">Rules</button>
-<button class="btn" type="button" id="addItemBtn">Add Team</button>
-<div id='list'></div>
-<button class="btn" id="readyBtn">Ready!</button>
+	<h1 class="mainTitle">Verbalise</h1>
 
-
-
-  <div class="hidden initialModal" id='modal'>
+	<div class="hidden" id='modal'>
     <div id='modal-container'>
-      <p>Content</p>
-      <img class='deleteBtn' src='./resources/images/crossButton.jpg' id='closeRules'/>
-    </div>
+      	<p id='rulesContent'></p>
+      	<div class='rules-bottom-bar' id='rules-bottom-bar'>
+      		<img src='./resources/images/crossButton.jpg' id='closeRules'/>
+      		<div id='rules-bottom-bar-right'>
+      			<img id='nextArrow' src='./resources/images/nextArrow.png' alt='An Arrow'/>
+  			</div>
+  		</div>
+  	</div>
   </div>
+
+<button class="btn initialBtn" type="button" id="rules">Rules</button>
+<button class="btn initialBtn" type="button" id="addItemBtn">Add Team</button>
+<div id='list'></div>
+<button class="btn initialBtn" id="readyBtn">Ready!</button>
+
+
+
+
+
 
 
 

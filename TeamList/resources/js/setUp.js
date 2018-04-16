@@ -1,5 +1,4 @@
 window.onload = function() {
-
 // add Item button can add children
 addItemBtn.addEventListener("click", addItem);
 // getting team names as long as more than 2 are created
@@ -8,37 +7,70 @@ readyBtn.addEventListener("click", grabTeamNames);
 rulesBtn.addEventListener('click', showRules);
 // close rules btn event addEventListener
 document.getElementById('closeRules').addEventListener('click', hideRules);
-
+// Show and hide rules
 function showRules() {
-document.getElementById('modal').className = 'initialModal';
-document.getElementById('modal-container').className = 'initialModal';
-setTimeout(function(){
-  document.getElementById('modal').className = 'modal';
-  document.getElementById('modal-container').className = 'modal-container';
-}, 1);
-}
-function hideRules() {
-document.getElementById('modal').className = 'hidden';
-document.getElementById('modal-container').className = 'initialModal';
-}
-function addItem() {
-noOfTeams += 1;
-noOfPlayers += 2;
-var randNum = ((Math.random() * 999999999999999) * (Math.random() * 999999999999999));
-var randNumId = randNum + noOfTeams;
-var listItem = document.createElement("li");
-listItem.innerHTML = `<input class="teamNames" value='Team ${noOfTeams}'></input>
-                      <img class='deleteBtn' id='deleteBtn_${randNumId}' src='./resources/images/crossButton.jpg'/>
-                      <div class='playerContainer' id='playerContainer_${randNumId}'>
-                      <input class='playerNames' value='Enter Player name 1'/>
-                      <input class='playerNames' value='Enter Player name 2'/>
-                      </div>
-                      <button class='addPlayerBtn' id='addPlayer_${randNumId}'>Add third player to Team</button>`;
-document.getElementById('list').appendChild(listItem);
-var buttonDelete = document.getElementById(`deleteBtn_${randNumId}`);
-buttonDelete.addEventListener("click", deleteItem);
-document.getElementById(`addPlayer_${randNumId}`).addEventListener('click', addPlayer);
+  document.getElementById('closeRules').className = 'hidden';
+  document.getElementById('modal').className = 'initialModal';
+  document.getElementById('modal-container').className = 'initialModal';
+  setTimeout(function(){
+    document.getElementById('modal').className = 'modal';
+    document.getElementById('modal-container').className = 'modal-container';
+   // list.className = 'hidden';
+  }, 100);
 
+  rulesContent.innerHTML = rulesNo1;
+  nextArrow.className = 'rulesArrows';
+  nextArrow.addEventListener('click', rulesContentChangeNo2);
+}
+
+function rulesContentChangeNo2() {
+  document.getElementById('closeRules').className = 'hidden';
+  nextArrow.className = 'rulesArrows';
+  rulesContent.innerHTML = rulesNo2;
+  nextArrow.removeEventListener('click', rulesContentChangeNo2);
+  nextArrow.addEventListener('click', rulesContentChangeNo3);
+}
+function rulesContentChangeNo3() {
+  document.getElementById('closeRules').className = 'hidden';
+  nextArrow.className = 'rulesArrows';
+  rulesContent.innerHTML = rulesNo3;
+  nextArrow.removeEventListener('click', rulesContentChangeNo3);
+  nextArrow.addEventListener('click', rulesContentChangeNo4)
+}
+function rulesContentChangeNo4() {
+  nextArrow.className = 'hidden';
+  rulesContent.innerHTML = rulesNo4;
+  document.getElementById('closeRules').className = 'deleteBtn';
+}
+
+// Hide Rules
+function hideRules() {
+  document.getElementById('modal').className = 'hidden';
+  document.getElementById('modal-container').className = 'initialModal';
+  nextArrow.className = 'rulesArrows';
+ // list.className = ' ';
+}
+
+
+// Add Teams and players
+function addItem() {
+  noOfTeams += 1;
+  noOfPlayers += 2;
+  var randNum = ((Math.random() * 9999999999) * (Math.random() * 99999999999));
+  var randNumId = randNum + noOfTeams;
+  var listItem = document.createElement("li");
+  listItem.innerHTML = `<img class='deleteBtn' id='deleteBtn_${randNumId}' src='./resources/images/crossButton.jpg'/>
+                        <input class="teamNames" placeholder='Team ${noOfTeams}'></input>
+                        <div class='playerContainer' id='playerContainer_${randNumId}'>
+                        <input class='playerNames' placeholder='Player name 1'/>
+                        <input class='playerNames' placeholder='Player name 2'/>
+                        </div>
+                        <button class='addPlayerBtn btn' id='addPlayer_${randNumId}'>Add third player</button>`;
+  document.getElementById('list').appendChild(listItem);
+  var buttonDelete = document.getElementById(`deleteBtn_${randNumId}`);
+  buttonDelete.addEventListener("click", deleteItem);
+  document.getElementById(`addPlayer_${randNumId}`).addEventListener('click', addPlayer);
+  nextArrow.addEventListener('click', rulesContentChangeNo2);
 }
 
 function addPlayer() {
@@ -78,21 +110,41 @@ function deleteItem() {
 }
 
 function grabTeamNames() {
+  var teamNames = document.querySelectorAll('.teamNames');
+  var playerNames = document.querySelectorAll('.playerNames');
+
   if(noOfTeams < 2) {
-    alert("You must have at least two teams");
+    alert("You must have at least two teams");          // CHANGE THIS TO SOMETHING GOOD
     return;
   } else {
-    //create arrays of team names and player names
-    var teamNames = document.querySelectorAll('.teamNames');
-    var playerNames = document.querySelectorAll('.playerNames');
-    for(i=0; i < teamNames.length; i++) {
+     //create arrays of team names and player names
+  for(i=0; i < teamNames.length; i++) {
       teamNamesArray.push(teamNames[i].value);
+      if(teamNames[i].value == '') {
+        alert('Please enter your team names');
+        for(let y=0; y < teamNames.length; y++) {
+          teamNamesArray.pop();
+        }
+        for(let y=0; y < playerNames.length; y++) {
+          PlayerNamesArray.pop();
+          return;
+        }
+      }
     }
+    // loop through playerNamesArray to form new array
     for(i=0; i < playerNames.length; i++) {
       playerNamesArray.push(playerNames[i].value);
+      if(playerNames[i].value == '') {
+        alert('Please enter your Player names');
+        for(let y=0; y < teamNames.length; y++) {
+          teamNamesArray.pop();
+        }
+        for(let y=0; y < playerNames.length; y++) {
+          PlayerNamesArray.pop();
+          return;
+        }
+      }
     }
-// alert each team followed by how many players then each player's name
-// loop through playerNamesArray to form new array
 // create team Objects
     for(i=0; i < noOfTeams; i++) {
       var numberOfPlayers = list.children[i].querySelector('div').children.length;

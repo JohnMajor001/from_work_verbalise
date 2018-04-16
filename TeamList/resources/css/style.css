@@ -4,13 +4,13 @@ html {
 p {
   margin-top: 0;
 }
+
+/* Rules */
 .modal-container {
   opacity: 1;
   transition: opacity .25s ease-in-out;
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
-
-
   position: fixed;
   background-color: #fff;
   border: 1px solid white;
@@ -34,7 +34,6 @@ p {
   transition: opacity .25s ease-in-out;
  -moz-transition: opacity .25s ease-in-out;
  -webkit-transition: opacity .25s ease-in-out;
-
   content: '';
   position: fixed;
   background-color: rgba(0,0,0,.7);
@@ -51,53 +50,85 @@ p {
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
 }
-
-
-
-
-
-
-/*
-
-.neonTrees {
+/*.neonTrees {
 background-image: url('../images/neontrees.jpg');
 background-size: cover;
 }*/
 body {
-  font-family: helvetica;
+  font-family: cursive;
   color: white;
   width: 100%;
-
-  background-image: url('../images/nature.jpg');
-  background-size: cover;
+  /*background-image: url('../images/nature.jpg');
+  background-size: cover; */
+  background-repeat: no-repeat;
+  background-color: #700000;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   padding: 3rem;
-  background-repeat: no-repeat;
 }
-
-
 h1 {
   font-size: 3rem;
   padding: 2rem 0;
 }
+#rulesContent h1, h1 {
+  font-family: 'Press Start 2P', cursive;
+}
+#rulesContent h1 {
+  font-size: 2rem;
+}
+#rulesContent p, #rulesContent li, input {
+  font-family: 'Architects Daughter', cursive;
+}
+#rulesContent li {
+  list-style-type: square;
+}
 li {
   display: flex;
   align-items: center;
+  font-family: 'Luckiest Guy', cursive;
 }
 .btn {
+  font-family: 'Luckiest Guy', cursive;
+  background-color: rgb(234, 93, 11, 0.3);
   cursor: pointer;
-  width: 10rem;
-  height: 3rem;
   font-size: 1.5rem;
   color: white;
   margin: 1rem 0;
   padding: 0.5rem;
-  background-color: rgba(56, 255, 95, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.btn:hover {
+  background-color: #efe007;
+  color: #700000;
+}
+.initialBtn {
+  width: 10rem;
+  height: 3rem;
+}
+.rulesArrows {
+  max-width: 2rem;
+  max-height: 2rem;
+}
+#rulesContent {
+  padding: 1rem;
+}
+.rules-bottom-bar, #rules-bottom-bar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#rules-bottom-bar-right {
+  width: 5rem;
+}
+.rulesArrows {
+  cursor: pointer;
+}
+
  input {
   background-color: rgba(247, 255, 248, 0.1);
   height: 2rem;
@@ -108,15 +139,12 @@ li {
   color: white;
   font-size: 1rem;
 }
+input:focus, button:focus {
+  outline: 0;
+}
 .addPlayerBtn {
-  cursor: pointer;
   width: 20rem;
   height: 3rem;
-  font-size: 1.5rem;
-  color: white;
-  margin: 1rem 0;
-  padding: 0.5rem;
-  background-color: rgba(56, 255, 95, 0.3);
 }
 input::placeHolder {
   font-size: 1rem;
@@ -135,11 +163,34 @@ input::placeHolder {
   cursor: pointer;
 }
 #list {
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#list li {
+  display: flex;
+  align-items: center;
 }
 .roundText {
   text-align: center;
   font-size: 3rem;
+  font-family: 'Luckiest Guy', cursive;
+}
+.teamNames {
+  margin-right: 0.5rem;
+}
+.playerContainer {
+  margin-right: 0.5rem;
+}
+.teamColor {
+  color: blue;
+}
+.categoryColor {
+  color: teal;
+}
+.describerColor {
+  color: yellow;
 }
