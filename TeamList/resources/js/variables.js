@@ -75,7 +75,7 @@ var rulesNo4 = `<h1>The Do's</h1>
 var internets = {
     name: 'Internet Culture',
     array: ['Memes', 'White-guilt', 'Black Lives Matter', 'All Lives Matter', 'Hashtag', 'Twitter', 'Facebook', 'Bebo', 'MySpace',
-            'DailyMash', 'Liberal Tears', 'Podcast', 'Pepe the Frog', 'Le', 'Over 9000', 'One Punch', 'Shrek is Love', 'Laughing out Loud',
+            'DailyMash', 'Liberal Tears', 'Podcast', 'Pepe the Frog', 'GarageBand', 'Le', 'Over 9000', 'One Punch', 'Shrek is Love', 'Laughing out Loud',
             'At the moment', 'Shaking my head', 'To be fair', 'What the Fuck?', 'Trolling', 'Shitposting', 'Social Justice Warrior',
             'Pewdiepie', 'Baader-Meinhof Phenomenon', 'Vaccination', '#MeToo', '#NoMakeUpSelfie', 'Selfies', 'Photoshop', 'Be Like Bill',
             'Triggered', 'FemiNazi', 'I don\'t like sand', 'Comic Sans', 'Lorom Ipsum', 'Grumpy Cat', 'Kylo-Ren\'s Tri-lightsaber', 'Solo shot first',
@@ -87,7 +87,7 @@ var internets = {
             'Epic Fail', 'NONONO cat', 'Pikachu use thundersmash', 'Fuck Stacey', 'Numa Numa Dance', 'Humans of New York', 'Humans of the Sesh',
             'LadBible', 'Lizzy the Lezzy', 'Achmed the Dead Terrorist', '#JeSuisCharlie', '#IbelieveHer', 'Trending', 'Chuck Norris', 'Charlie bit me!',
             'Ask a Ninja', 'Nope, Chuck Testa!', 'Will it blend?', 'Engrish Funny', 'The TreadMill Dance', 'Nuts the Squirrel', 'One Red Paperclip',
-            'FlatEarth', 'Australia', 'Jizz In My Pants', 'Demotivational Posters', 'The Hamsterdance', 'Dramatic Chipmunk', 'Coke and Mentos',
+            'FlatEarth', 'Australia not real', 'Jizz In My Pants', 'Demotivational Posters', 'The Hamsterdance', 'Dramatic Chipmunk', 'Coke and Mentos',
             'Elf On the Shelf', 'legit', 'The Wealdstone Raider', 'Got no fans', 'Damn Daniel', 'IceBucket Challenge', 'The Coloured Dress',
             'Cultural Appropriation', 'Offended', 'Crazy Frog', 'Chum Drum Bedrum', 'The Floss', 'Man\'s Not Hot', 'No Ketchup, just sauce',
             'Roasting', 'Swipe Left', 'Slender Man', 'Troll Face', 'Drinking the Kool-Aid', 'Forever Alone', 'Lenny Face', 'Zerg Rush', 'TwitchChat Cancer',
@@ -121,10 +121,10 @@ var internets = {
             'White people dancing', 'Crash Bandicoot Woah', 'You Tried', 'I regret Nothing', 'Griefing', 'Flaming', 'Feeding', 'Luigi\'s Death Stare',
             'Streisand Effect', 'Pakalu Papito', 'Salty', 'YOLO', 'Spoiler alert', 'Streaming', 'Corporations', 'Rabbit hole', 'Milf', 'Cuck',
             'Whatsapp', 'Blogging', 'E-mail', 'Social Media', 'Glitch', 'Millenials', 'Generation Z', 'Chillaxin\'', 'Google', 'Apple', 'Website',
-            'Bluetooth', 'Bosh', 'Veganism', 'Joe Rogan', 'Dat Ash', 'Overly Manly Man', 'Carl!', 'Bae', 'Russian Sleep Experiment', 'Cheeky Nandos',
+            'Bluetooth', 'Bosh', 'Veganism', 'Dat Ash', 'Overly Manly Man', 'Carl!', 'Bae', 'Russian Sleep Experiment', 'Cheeky Nandos',
             'Netflix and Chill', 'Actual advice Mallard', 'Rip in peace', 'Pacha Edits', 'Furries', '[intensifies]', 'Pun Dog', 'You are a Pirate',
             'Raptor Jesus', 'Planking', 'Owling', 'Twerking', 'dis gon b gud', 'Unpopular opinion Puffin', 'Bitch please', 'Download', 'Zip file',
-            'Piratebay', 'Trial Account', 'Random', 'Actual footage of'],
+            'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan'],
 };
 
 // Standard Categories
@@ -333,10 +333,11 @@ var person = {
   name: 'People and Characters',
   array: ['Charlie Chaplain', 'Hugh Jackman', 'Second Cousin', 'Rachel Bloom', 'Vasyl Lomachenko', 'Gervonta Davis', 'Sylvestor Stalone', 'Jennifer Aniston',
           'David Schwimmer', 'Matthew Perry', 'Matt LeBlanc', 'Lisa Kudrow', 'Courtney Cox', 'Brad Pitt', 'Angelina Jolie', 'Simon Cowell', 'Bruce Springsteen',
-          'Meryl Streep', 'Speedy Gonzales', 'Romeo and Juliette'],
-
-
-
+          'Meryl Streep', 'Speedy Gonzales', 'Romeo and Juliette', 'Arthur Miller', 'George Orwell', ''],
+};
+var randomCategory = {
+  name: 'Random',
+  array: [],
 };
 // Order of Categories on the board is determined by this
 categories.push(objects);
