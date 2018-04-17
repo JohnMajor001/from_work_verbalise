@@ -1,20 +1,33 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
-                Favicon
+                Add More Categories + Themes (DISNEY THEME?! )
                 Rules - add images
                 Design drinking rules to implement
                 Pass Button alert: comes immediately underneath button, fades out after 5 seconds?
                 3, 2, 1 countdown;
-                Add More Categories
-                Aesthetics
-                Settings Page
+                Aesthetics - create front-page humorous animation, Favicon/LOGO, Make Team Name Box bigger
+                      Put 'X' at side of each third player box to deleteBtn
+                      do the same for team actually
+                Settings Page - Reset Button, standard settings - create a drag and drop?
                 Give break down of game at final screen
                 Animation to show teams moving forward?
-                Back to homepage
-                Reset Button
-                REMOVE EVENT LISTENER OF PASSED ON SOMETHING AMISS BUTTON
+                Back to homepage - This will
+                                          1. Show home page with team Names already entered in as per previous game
+                                          2. Reset:
+                                                  timer back to what team selected
+                                                  noOfTeams
+                                                  noOfPlayers
+                                                  teamNamesArray
+                                                  playerNamesArray
+                                                  teamObjectsArray
+                                                  whichTeamPlays
+                                                  categories
+                                                  backUpCategories
+
+
+
                 */
-var ifDrink = false;
+var drinkRules = false;
 var noOfTeams = 0;
 var noOfPlayers = 0;
 var addItemBtn = document.getElementById('addItemBtn');
@@ -25,16 +38,15 @@ var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
 var wordsSuccessfullyDescribed = [];
-var toWin = 70;
+var toWin = 1;
 
-
-var maximumPasses = 1; // Only Useful really when settings page is created
+var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
 var whichTeamPlays = 0;
 var timer = 5;
 var categories = [];
 
-// Rules
+// Rules Content
 var nextArrow = document.getElementById('nextArrow');
 var rulesContent = document.getElementById('rulesContent');
 var rulesNo1 = `<h1>Overview</h1>
@@ -68,8 +80,6 @@ var rulesNo4 = `<h1>The Do's</h1>
                 <li>Sing/hum</li>
                 </ul><br />
                 <p>Have fun!</p>`;
-
-
 
 // Niche Categories
 var internets = {
@@ -124,7 +134,8 @@ var internets = {
             'Bluetooth', 'Bosh', 'Veganism', 'Dat Ash', 'Overly Manly Man', 'Carl!', 'Bae', 'Russian Sleep Experiment', 'Cheeky Nandos',
             'Netflix and Chill', 'Actual advice Mallard', 'Rip in peace', 'Pacha Edits', 'Furries', '[intensifies]', 'Pun Dog', 'You are a Pirate',
             'Raptor Jesus', 'Planking', 'Owling', 'Twerking', 'dis gon b gud', 'Unpopular opinion Puffin', 'Bitch please', 'Download', 'Zip file',
-            'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale'],
+            'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale',
+            'Yahoo', 'imgur'],
 };
 
 // Standard Categories
@@ -342,13 +353,14 @@ var person = {
           'St. Patrick', 'Robbie Keane', 'John Hume', 'Sir John Major', 'Winston Churchill', 'Michael Collins', 'Éamon de Valera', 'Dr Ian Paisley',
           'Barry McGuigan', 'Paul O\'Connell', 'Brian O\'Driscoll', 'Gay Byrne', 'Dame Julie Andrews', 'Sacha Baron Cohen', 'Sean Bean', 'Christian Bale',
           'Hugh Laurie', 'Jude Law', 'Orlando Bloom', 'Sir Michael Caine', 'Helena Bonham Carter', 'Daniel Craig', 'Benedict Cumberbatch', 'Tom Felton',
-          'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell'],
+          'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', ],
 };
 var randomCategory = {
   name: 'Random',
   array: [],
 };
 // Order of Categories on the board is determined by this
+// Settings page made like this? Made here?!
 categories.push(objects);
 categories.push(actions);
 categories.push(nature);
@@ -394,18 +406,21 @@ backUpCategories.push(backUpNature);
 backUpCategories.push(backUpWorld);
 backUpCategories.push(backUpMisc);
 
-/*function team(playerNames, numberOfPlayers, score, position) {
-  this.playerNames = playerNames;
-  this.numberOfPlayers = numberOfPlayers;
-  this.score = score;
-  this.position = position;
-}*/
+//Home Page on 17/04/18
+var home-page = `<h1 class="mainTitle">Verbalise</h1>
+                  <div class="hidden" id='modal'>
+                    <div id='modal-container'>
+                        <p id='rulesContent'></p>
+                        <div class='rules-bottom-bar' id='rules-bottom-bar'>
+                          <img src='./resources/images/crossButton.jpg' id='closeRules'/>
+                          <div id='rules-bottom-bar-right'>
+                            <img id='nextArrow' src='./resources/images/nextArrow.png' alt='An Arrow'/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-
-
-// Things to do!
-/* Make Team Name Box bigger
-      Put 'X' at side of each third player box to deleteBtn
-      do the same for team actually*/
-
-// Organise arrays of player Names in accordance with relevant Team Names
+                  <button class="btn initialBtn" type="button" id="rules">Rules</button>
+                  <button class="btn initialBtn" type="button" id="addItemBtn">Add Team</button>
+                  <div id='list'></div>
+                  <button class="btn initialBtn" id="readyBtn">Ready!</button>`;

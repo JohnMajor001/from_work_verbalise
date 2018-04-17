@@ -76,6 +76,7 @@ function roundEnds() {
   while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
+
   // Get current information
   var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   // increment position
@@ -86,7 +87,7 @@ function roundEnds() {
   var table = document.createElement('table');
   var stats = `<tr>
     <th>Team</th>
-    <td>${currentTeam.name}</th>
+    <td>${currentTeam.name}</td>
   </tr>
   <tr>
     <th>Described Successfully</th>
@@ -106,6 +107,7 @@ function roundEnds() {
     list.appendChild(table);
   // Change buttons
 var mistakesWereMade = document.getElementById('passBtn');
+mistakesWereMade.removeEventListener('click', passed);
 mistakesWereMade.addEventListener('click', mistakes);
 mistakesWereMade.innerHTML = 'Help';
 
@@ -203,16 +205,23 @@ while(list.firstChild) {
                       <h1>${currentTeam.name}!</h1>`;
     winners.innerHTML = winnersText;
     list.appendChild(winners);
+    // Need a for loop to create table?
+  /*  var finalTable = `<tr>              THIS ACTUALLY BREAKS THE WHOLE FUCKING GAME APPARENTLY
+      <th>Teams</th>
+      <th>Final Scores</th>
+      <th>Average Score per Round</th>
+    </tr>
+    ${return '<tr><td>Hi</td>There<td>Yo</td></tr>'}  `;*/
 
-  readyBtn.addEventListener('click', reset);
-  readyBtn.innerHTML = 'Reset';
+  readyBtn.addEventListener('click', homePage);
+  readyBtn.innerHTML = 'Home';
 } else {
   whichTeamPlays += 1;
   var newTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   roundPrep(newTeam);
   }
 }
-function reset() {
+function homePage() {
   alert('Yeah this doesn\'t do anything either');
   alert('You should fix that');
   // reset game
