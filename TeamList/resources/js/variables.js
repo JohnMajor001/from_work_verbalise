@@ -124,7 +124,7 @@ var internets = {
             'Bluetooth', 'Bosh', 'Veganism', 'Dat Ash', 'Overly Manly Man', 'Carl!', 'Bae', 'Russian Sleep Experiment', 'Cheeky Nandos',
             'Netflix and Chill', 'Actual advice Mallard', 'Rip in peace', 'Pacha Edits', 'Furries', '[intensifies]', 'Pun Dog', 'You are a Pirate',
             'Raptor Jesus', 'Planking', 'Owling', 'Twerking', 'dis gon b gud', 'Unpopular opinion Puffin', 'Bitch please', 'Download', 'Zip file',
-            'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan'],
+            'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale'],
 };
 
 // Standard Categories
@@ -169,7 +169,7 @@ var miscellaneous = {
              'Waiver', 'Lost cause', 'Lost and found', 'Hopeless', 'Comprehensive', 'Story', 'Mindless', 'Thick as thieves', 'Daft', 'Fiery',
              'Darkness', 'Single-handed', 'Rough', 'Mouth-to-mouth', 'Nervous Breakdown', 'Midnight feast', 'Reality TV', 'Round the bend',
              'Square peg', 'Invisible', 'Speculator', 'Sweet Dreams', 'Rush Hour Traffic', 'High time', 'Crush', 'Blind date', 'Kind Regards',
-             'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone'],
+             'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram'],
 
 
 };
@@ -333,7 +333,16 @@ var person = {
   name: 'People and Characters',
   array: ['Charlie Chaplain', 'Hugh Jackman', 'Second Cousin', 'Rachel Bloom', 'Vasyl Lomachenko', 'Gervonta Davis', 'Sylvestor Stalone', 'Jennifer Aniston',
           'David Schwimmer', 'Matthew Perry', 'Matt LeBlanc', 'Lisa Kudrow', 'Courtney Cox', 'Brad Pitt', 'Angelina Jolie', 'Simon Cowell', 'Bruce Springsteen',
-          'Meryl Streep', 'Speedy Gonzales', 'Romeo and Juliette', 'Arthur Miller', 'George Orwell', ''],
+          'Meryl Streep', 'Speedy Gonzales', 'Romeo and Juliette', 'The Abbott of Westminster', 'Abraham', 'Jesus', 'Muhammad', 'Hamlet', 'Macbeth',
+          'Aslan', 'Daniel Day-Lewis', 'Liam Neeson', 'Colin Farrell', 'Jamie Dornan', 'Michael Fassbender', 'Brendan Gleeson', 'Brian Gleeson', 'Domhnall Gleeson',
+          'Richard Harris', 'Evanna Lynch', 'Cilian Murphy', 'James Nesbitt', 'Fiona Shaw', 'Saoirse Ronan', 'Stuart Townsend', 'Paul Rankin', 'Duke of York',
+          'Duke of Edinburgh', 'Bono', 'Phil Coulter', 'Eva Cassidy', 'Nadine Coyle', 'Rory Gallagher', 'Bob Geldof', 'St. Thomas Aquinas', 'Niall Horan',
+          'Harry Styles', 'Hozier', 'Ronan Keating', 'Michael Kelly', 'Sinéad O\'Connor', 'Daniel O\'Donnell', 'Katie Melua', 'Brian Friel', 'Seamus Heaney',
+          'James Joyce', 'Oscar Wilde', 'Arthur Guiness', 'Sir Alec Guiness', 'Alan Partridge', 'John Cusack', 'Joan Cusack', 'Damien Duff', 'Edna Mode', 'Alex Higgins',
+          'St. Patrick', 'Robbie Keane', 'John Hume', 'Sir John Major', 'Winston Churchill', 'Michael Collins', 'Éamon de Valera', 'Dr Ian Paisley',
+          'Barry McGuigan', 'Paul O\'Connell', 'Brian O\'Driscoll', 'Gay Byrne', 'Dame Julie Andrews', 'Sacha Baron Cohen', 'Sean Bean', 'Christian Bale',
+          'Hugh Laurie', 'Jude Law', 'Orlando Bloom', 'Sir Michael Caine', 'Helena Bonham Carter', 'Daniel Craig', 'Benedict Cumberbatch', 'Tom Felton',
+          'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell'],
 };
 var randomCategory = {
   name: 'Random',
