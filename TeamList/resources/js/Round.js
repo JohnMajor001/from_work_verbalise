@@ -183,6 +183,10 @@ var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
     alert('No more passes this round');           // This will need to be changed to something that looks better
     var noMorePasses = `<span id='noMorePassesAlert'>${noMorePassesText}</span>`;
     passBtn.insertAdjacentHTML('afterend', noMorePasses);
+    setTimeout(function() {
+      var idhere = document.getElementById('noMorePassesAlert');
+      idhere.parentNode.removeChild(idhere);
+    }, 4000);
 
     return;
   } else {

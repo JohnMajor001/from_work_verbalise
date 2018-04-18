@@ -59,7 +59,7 @@ var categories = [];
 var nextArrow = document.getElementById('nextArrow');
 var rulesContent = document.getElementById('rulesContent');
 var rulesNo1 = `<h1>Overview</h1>
-                <p>This is a turn-based game with a minimum of two teams.
+                <p>This game requires a minimum of two teams with 2-3 players on each team.
                 The aim of the game is to get to the finish line first!</p><br />
                 <p>You move forward by describing/correctly guessing the word on the screen,
                 depending on your role at the time.</p>`;
@@ -133,7 +133,7 @@ var internets = {
             'You\'re doing it wrong', 'Hipster Ariel', 'On Fleek', 'Kanye Interrupts', 'Nom nom nom', '#rekt', 'Skrillex', 'Expanding Brain',
             'Confused Travolta', 'Zuckerberg Note Pass', 'Tits or GTFO', 'Spoderman', 'Butthurt', 'Release the Kraken', 'Why is the Rum always gone?',
             'Science, bitch', 'THE GAME', 'Arthur\'s Fist', 'Activated Trap Card', 'Blue Waffle', 'Diabeetus', 'Chemistry Cat', 'My Name is Jeff',
-            'Full Retard', 'Did you die?', 'Woll Smoth', 'Error 404', 'Wonderwall', 'That\'s what she said', 'Just do it', 'Ebola', 'Change my Mind',
+            'Full Retard', 'But did you die?', 'Woll Smoth', 'Error 404', 'Wonderwall', 'That\'s what she said', 'Just do it', 'Ebola', 'Change my Mind',
             'H3h3', 'Ben Shapiro', 'Jordan Peterson', 'ShoeOnHead', 'Kill it with fire', 'Derpina', 'Confession Bear', 'Tunak Tunak Tun', 'Ainsley Harriot',
             'Grammar Nazi', 'Face Swap', 'SnapChat', 'See me Rollin\'', 'Women Logic', 'ROFLcoptor', 'reddit', 'World of Warcraft', 'Nailed it',
             'Anonymous', 'Pineapple Pen', 'Covfefe', 'The Room', 'Attractive Convict', 'Everyday I\'m Shufflin\'', 'Friend Zoning', 'Peanut Butter Jelly Time',
@@ -370,7 +370,7 @@ var randomCategory = {
   array: [],
 };
 // Order of Categories on the board is determined by this
-// Settings page made like this? Made here?!
+// Settings page made like this
 categories.push(objects);
 categories.push(actions);
 categories.push(nature);
