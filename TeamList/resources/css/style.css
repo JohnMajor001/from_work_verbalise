@@ -6,6 +6,10 @@ p {
 }
 
 /* Rules */
+.roundTextContainer {
+  height:12rem;
+  padding: 1rem 0;
+}
 .modal-container {
   opacity: 1;
   transition: opacity .25s ease-in-out;
@@ -61,7 +65,7 @@ body {
   /*background-image: url('../images/nature.jpg');
   background-size: cover; */
   background-repeat: no-repeat;
-  background-color: #700000;
+  background-color: #b70303;
 
   display: flex;
   justify-content: center;
@@ -73,7 +77,8 @@ h1 {
   font-size: 3rem;
   padding: 2rem 0;
 }
-#rulesContent h1, h1 {
+#rulesContent h1, h1, .num, .statsTable th, .btn,
+.finalTable th {
   font-family: 'Press Start 2P', cursive;
 }
 #rulesContent h1 {
@@ -91,11 +96,10 @@ li {
   font-family: 'Luckiest Guy', cursive;
 }
 .btn {
-  font-family: 'Luckiest Guy', cursive;
   background-color: rgb(234, 93, 11, 0.3);
   cursor: pointer;
-  font-size: 1.5rem;
-  color: white;
+  font-size: 1rem;
+  color: #f7f700;
   margin: 1rem 0;
   padding: 0.5rem;
   display: flex;
@@ -110,6 +114,7 @@ li {
   width: 10rem;
   height: 3rem;
 }
+
 .rulesArrows {
   max-width: 2rem;
   max-height: 2rem;
@@ -127,6 +132,16 @@ li {
 }
 .rulesArrows {
   cursor: pointer;
+}
+.teamBtn {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    background-color: rgba(247, 255, 248, 0.1);
+    height: 2rem;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 0.5rem 0;
+    margin: 0;
 }
 
  input {
@@ -181,6 +196,7 @@ input::placeHolder {
 }
 .teamNames {
   margin-right: 0.5rem;
+  margin-left: 0;
 }
 .playerContainer {
   margin-right: 0.5rem;
@@ -192,5 +208,8 @@ input::placeHolder {
   color: teal;
 }
 .describerColor {
+  color: yellow;
+}
+#noMorePassesAlert {
   color: yellow;
 }

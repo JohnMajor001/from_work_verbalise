@@ -59,11 +59,11 @@ function addItem() {
   var randNum = ((Math.random() * 9999999999) * (Math.random() * 99999999999));
   var randNumId = randNum + noOfTeams;
   var listItem = document.createElement("li");
-  listItem.innerHTML = `<img class='deleteBtn' id='deleteBtn_${randNumId}' src='./resources/images/crossButton.jpg'/>
+  listItem.innerHTML = `<img class='deleteBtn teamBtn' id='deleteBtn_${randNumId}' src='./resources/images/x_delete_button.png'/>
                         <input class="teamNames" placeholder='Team ${noOfTeams}'></input>
                         <div class='playerContainer' id='playerContainer_${randNumId}'>
-                        <input class='playerNames' placeholder='Player name 1'/>
-                        <input class='playerNames' placeholder='Player name 2'/>
+                        <input class='playerNames' placeholder='Player 1'/>
+                        <input class='playerNames' placeholder='Player 2'/>
                         </div>
                         <button class='addPlayerBtn btn' id='addPlayer_${randNumId}'>Add third player</button>`;
   document.getElementById('list').appendChild(listItem);
@@ -80,7 +80,7 @@ function addPlayer() {
   var playerContainerId = 'playerContainer_' + nOsInId;
   var player3Id = 'player3Id' + nOsInId;
   var z = document.createElement('li');
-  var text = `<input class='playerNames' id='${player3Id}' value='Enter Player name 3'/>`;
+  var text = `<input class='playerNames' id='${player3Id}' placeholder='Player 3'/>`;
   z.innerHTML = text;
   var playerContainer = document.getElementById(`${playerContainerId}`);
   playerContainer.appendChild(z);

@@ -1,13 +1,16 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
-                Add More Categories + Themes (DISNEY THEME?! )
+                Add More Categories + Themes (DISNEY THEME?!)
                 Rules - add images
+                Consider what may be necessary for 321 animation for all users
+                Trim input fields for security
                 Design drinking rules to implement
                 Pass Button alert: comes immediately underneath button, fades out after 5 seconds?
-                3, 2, 1 countdown;
-                Aesthetics - create front-page humorous animation, Favicon/LOGO, Make Team Name Box bigger
-                      Put 'X' at side of each third player box to deleteBtn
-                      do the same for team actually
+                Edit Mistakes Page
+                Aesthetics - create front-page humorous animation,
+                              Favicon/LOGO,
+                              Make Team Name Box bigger,
+                              Final screen css
                 Settings Page - Reset Button, standard settings - create a drag and drop?
                 Give break down of game at final screen
                 Animation to show teams moving forward?
@@ -23,10 +26,16 @@
                                                   whichTeamPlays
                                                   categories
                                                   backUpCategories
-
-
-
                 */
+
+                /* Create a drag and drop element
+                      1. <img draggable="true">
+
+                      */
+
+                      /* To Test
+                                Ending page return Home button
+                                Pass button alert*/
 var drinkRules = false;
 var noOfTeams = 0;
 var noOfPlayers = 0;
@@ -38,8 +47,8 @@ var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
 var wordsSuccessfullyDescribed = [];
-var toWin = 1;
-
+var toWin = 10;
+var noMorePassesText = 'All Passes used!';
 var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
 var whichTeamPlays = 0;
@@ -180,7 +189,8 @@ var miscellaneous = {
              'Waiver', 'Lost cause', 'Lost and found', 'Hopeless', 'Comprehensive', 'Story', 'Mindless', 'Thick as thieves', 'Daft', 'Fiery',
              'Darkness', 'Single-handed', 'Rough', 'Mouth-to-mouth', 'Nervous Breakdown', 'Midnight feast', 'Reality TV', 'Round the bend',
              'Square peg', 'Invisible', 'Speculator', 'Sweet Dreams', 'Rush Hour Traffic', 'High time', 'Crush', 'Blind date', 'Kind Regards',
-             'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram'],
+             'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram',
+             'Beige', 'Purple'],
 
 
 };
@@ -407,20 +417,20 @@ backUpCategories.push(backUpWorld);
 backUpCategories.push(backUpMisc);
 
 //Home Page on 17/04/18
-var home-page = `<h1 class="mainTitle">Verbalise</h1>
-                  <div class="hidden" id='modal'>
-                    <div id='modal-container'>
-                        <p id='rulesContent'></p>
-                        <div class='rules-bottom-bar' id='rules-bottom-bar'>
-                          <img src='./resources/images/crossButton.jpg' id='closeRules'/>
-                          <div id='rules-bottom-bar-right'>
-                            <img id='nextArrow' src='./resources/images/nextArrow.png' alt='An Arrow'/>
-                        </div>
+var home_page = `<h1 class="mainTitle" id='topTitle'>Verbalise</h1>
+                <div class="hidden" id='modal'>
+                  <div id='modal-container'>
+                      <p id='rulesContent'></p>
+                      <div class='rules-bottom-bar' id='rules-bottom-bar'>
+                        <img src='./resources/images/crossButton.jpg' id='closeRules'/>
+                        <div id='rules-bottom-bar-right'>
+                          <img id='nextArrow' src='./resources/images/nextArrow.png' alt='An Arrow'/>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  <button class="btn initialBtn" type="button" id="rules">Rules</button>
-                  <button class="btn initialBtn" type="button" id="addItemBtn">Add Team</button>
-                  <div id='list'></div>
-                  <button class="btn initialBtn" id="readyBtn">Ready!</button>`;
+                <button class="btn initialBtn" type="button" id="rules">Rules</button>
+                <button class="btn initialBtn" type="button" id="addItemBtn">Add Team</button>
+                <div id='list'></div>
+                <button class="btn initialBtn" id="readyBtn">Ready!</button>`;

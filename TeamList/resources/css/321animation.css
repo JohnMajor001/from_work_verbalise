@@ -1,0 +1,63 @@
+.num {
+	color: white;
+	font-size: 2rem;
+	transform: scale(0);
+	animation-name: numGrow;
+	animation-duration: 1s;
+	position: absolute;
+	top: 50%;
+}
+.two {
+	animation-delay: 1s;
+}
+.three {
+	animation-delay: 2s;
+}
+.Go {
+	animation-delay: 3s;
+}
+
+@keyframes numGrow{
+	from{transform: scale(0)}
+	to{transform: scale(4)}
+}
+
+/* Stats Table */
+.statsTable {
+	width: 70%;
+}
+.statsTable th, .finalTable th {
+	min-width: 20rem;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	height: 2rem;
+}
+.describeText, .statsTable td, .finalTable td {
+	font-family: 'Architects Daughter', cursive;
+}
+.describeText {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 1rem;
+	height: 10rem;
+}
+#spanWithWordToDescribe {
+	font-size: 3rem;
+}
+/* Final Table */
+.finalTable {
+	width: 70%;
+}
+.finalTable tr {
+	width: 100%;
+	display: flex;
+}
+.finalTable td, .finalTable th {
+	width: 10rem;
+}
+.finalTable td {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
