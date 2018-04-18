@@ -52,6 +52,9 @@
 	padding: 0.5rem 1rem;
 	height: 2rem;
 }
+.finalTable td {
+	min-width: 20rem;
+}
 .describeText, .statsTable td, .finalTable td {
 	font-family: 'Architects Daughter', cursive;
 }
@@ -67,14 +70,15 @@
 }
 /* Final Table */
 .finalTable {
-	width: 70%;
+	width: 50%;
+	text-align: center;
+}
+.finalTable th {
+	height: 3rem;
+	padding: 0.5rem 0;
 }
 .finalTable tr {
-	width: 100%;
 	display: flex;
-}
-.finalTable td, .finalTable th {
-	width: 10rem;
 }
 .finalTable td {
 	display: flex;

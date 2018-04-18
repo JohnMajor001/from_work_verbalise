@@ -240,8 +240,9 @@ while(list.firstChild) {
     */
     // load winning screen
     var winners = document.createElement('div');
-    var winnersText = `<h1>And the Winners are...<br />
-                      ${currentTeam.name}!</h1>`;
+    winners.className = 'winnersText';
+    var winnersText = `<h1>And the Winners are...</h1>
+                        <h1>${currentTeam.name}!</h1>`;
     winners.innerHTML = winnersText;
     var statsTableElement = document.createElement('table');
     statsTableElement.className = 'finalTable';
@@ -261,7 +262,7 @@ while(list.firstChild) {
       list.appendChild(winners);
       list.appendChild(statsTableElement);
 
-
+  readyBtn.removeEventListener('click', gotIt);
   readyBtn.addEventListener('click', homePage);
   readyBtn.innerHTML = 'Home';
   return;
@@ -272,8 +273,17 @@ while(list.firstChild) {
   }
 }
 function homePage() {
-  document.innerHTML = home_page;
+  // document.innerHTML = home_page; -> This doesn't do anything
+  // May need to put entire game in div? Might be a good idea anyway
   alert('Yeah this doesn\'t do anything either');
   alert('You should fix that');
+
+  noOfTeams = 0;
+  noOfPlayers = 0;
+  teamNamesArray.length = 0;
+  playerNamesArray.length = 0;
+  teamObjectsArray.length = 0;
+  whichTeamPlays = 0;
+  categories.length = 0;
   // reset game
 }

@@ -25,7 +25,6 @@
                                                   teamObjectsArray
                                                   whichTeamPlays
                                                   categories
-                                                  backUpCategories
                 */
 
                 /* Create a drag and drop element
@@ -34,9 +33,11 @@
                       */
 
                       /* To Test
-                                Ending page return Home button
+                                Ending page returns to Home button
                                 Pass button alert
                                 That Honey pot doesn't fuck anything up
+                                WhichTeamPlays isn't dead
+                                In Timer function - take gotIt off at the exact same time as thingy - get rid of uncaught type error
                                 */
 var drinkRules = false;
 var noOfTeams = 0;
@@ -53,7 +54,7 @@ var toWin = 10;
 var noMorePassesText = 'All Passes used!';
 var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
-var whichTeamPlays = 0;
+var whichTeamPlays = Math.floor(Math.random());
 var timer = 5;
 var categories = [];
 
@@ -379,8 +380,9 @@ var person = {
           'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', 'Emma Watson', 'Joanne Rowling',
           'Samuel Beckett', 'Andrew Flintoff', 'Jessica Ennis', 'Anthony Joshua', 'Lennox Lewis', 'Prince Naseem Hamed', 'Ricky Hatton', 'Muhammad Ali'],
           backUpArray: [],
-          drinkingLines: ['Drink if you would gladly bang any of people in the list words successfully described above.',
-                          'Take a vote ',],
+          drinkingLines: ['Drink if you would gladly bang any of people in the list next to Got \'Em',
+                          'Drink if you have an irrational dislike of anyone in the list next to Got \'Em',
+                          'Take a vote with all present: '],
 };
 var randomCategory = {
   name: 'Random',

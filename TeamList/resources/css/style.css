@@ -200,3 +200,9 @@ input::placeHolder {
 .describerColor, #noMorePassesAlert {
   color: yellow;
 }
+.winnersText {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
