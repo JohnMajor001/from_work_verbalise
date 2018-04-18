@@ -148,6 +148,7 @@ var internets = {
             'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale',
             'Yahoo', 'imgur'],
   backUpArray: [],
+  drinkingLines: [],
 };
 
 // Standard Categories
@@ -195,6 +196,7 @@ var miscellaneous = {
              'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram',
              'Beige', 'Purple'],
     backUpArray: [],
+    drinkingLines: [],
 
 };
 var world = {
@@ -228,6 +230,7 @@ var world = {
           'Iceland', 'Reykjavik', 'Faroe Islands', 'Isle of Man', 'Jersey', 'Guernsey', 'Isle of Wight', 'Malta', 'Algiers', 'Murcia', 'Gibraltar',
           'Morocco', 'Togo', 'Seashore'],
           backUpArray: [],
+          drinkingLines: [],
 };
 
 var objects = {
@@ -259,6 +262,7 @@ var objects = {
          'Sphygmomanometer', 'Drum', 'Iron', 'Headphones', 'Fretboard', 'Bow and Arrow', 'Teapot', 'Crockery', 'Oven Gloves', 'Engine', 'Grandmother Clock',
          'Rattle'],
          backUpArray: [],
+         drinkingLines: [],
 			};
 var actions = {
 	name: 'Verbs',
@@ -301,6 +305,7 @@ var actions = {
           'Lacing', 'Resolving', 'Issuing', 'Thanking', 'Lounging', 'Spunging', 'Mounting', 'Descending', 'Ascending', 'Mulling', 'Pointing', 'Dripping',
           'Dropping', 'Asking', 'Coming', 'Regurgitating', 'Absconding', 'Probing', 'Casting'],
           backUpArray: [],
+          drinkingLines: [],
 			};
 var nature = {
 	name: 'Nature',
@@ -355,6 +360,7 @@ var nature = {
           'Almond', 'Peanut', 'Pistachio', 'Pecan', 'Bay laurel', 'European Beech', 'Brazil Nut', 'Weeping Willow', 'Silver birch', 'Camphor Tree',
           'Sugar Maple', 'Wasp', 'Parasite'],
           backUpArray: [],
+          drinkingLines: [],
         };
 
 var person = {
@@ -373,11 +379,18 @@ var person = {
           'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', 'Emma Watson', 'Joanne Rowling',
           'Samuel Beckett', 'Andrew Flintoff', 'Jessica Ennis', 'Anthony Joshua', 'Lennox Lewis', 'Prince Naseem Hamed', 'Ricky Hatton', 'Muhammad Ali'],
           backUpArray: [],
+          drinkingLines: ['Drink if you would gladly bang any of people in the list words successfully described above.',
+                          'Take a vote ',],
 };
 var randomCategory = {
   name: 'Random',
   array: [],
 };
+for(let poop = 0; poop < categories.length; poop++) {
+  for(let yo = 0; yo < categories[poop].array.length; yo++) {
+    categories[poop].backUpArray.push(categories[poop].array[yo]);
+  }
+}
 // Order of Categories on the board is determined by this
 // Settings page made like this
 categories.push(objects);
@@ -385,13 +398,6 @@ categories.push(actions);
 categories.push(nature);
 categories.push(world);
 categories.push(miscellaneous);
-
-for(let poop = 0; poop < categories.length; poop++) {
-  for(let yo = 0; yo < categories[poop].array.length; yo++) {
-    categories[poop].backUpArray.push(categories[poop].array[yo]);
-  }
-}
-
 //Home Page on 17/04/18
 var home_page = `<h1 class="mainTitle" id='topTitle'>Verbalise</h1>
                 <div class="hidden" id='modal'>
