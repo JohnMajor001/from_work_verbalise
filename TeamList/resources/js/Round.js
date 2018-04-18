@@ -66,9 +66,8 @@ function roundBegins() {
   var catToUse = categories[checkPosition];
 
   // Check if array needs to be repopulated
-  var backUpArray = backUpCategories[checkPosition];
     if(catToUse.array.length == 2) {
-      for(i = 0; i < backUpArray.length; i++) {
+      for(i = 0; i < catToUse.backUpArray.length; i++) {
         catToUse.array.push(backUpArray[i]);
         }
       }
@@ -100,7 +99,6 @@ function roundEnds() {
   while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
-
   // Get current information
   var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   // increment position
@@ -132,18 +130,22 @@ function roundEnds() {
     table.innerHTML = stats;
     list.appendChild(table);
   // Change buttons
-var mistakesWereMade = document.getElementById('passBtn');
-mistakesWereMade.removeEventListener('click', passed);
-mistakesWereMade.addEventListener('click', mistakes);
-mistakesWereMade.innerHTML = 'Help';
+  if(drinkRules) {
+    var drinkDiv = document.createElement('div');
+    var drinkDivContent = ``;
+  }
+    var mistakesWereMade = document.getElementById('passBtn');
+    mistakesWereMade.removeEventListener('click', passed);
+    mistakesWereMade.addEventListener('click', mistakes);
+    mistakesWereMade.innerHTML = 'Help';
 
-readyBtn.innerHTML = 'Next Round';
-readyBtn.removeEventListener('click', gotIt);
-setTimeout(function() {
-  readyBtn.addEventListener('click', leadToRoundPrep);
-}, 1000);
-  // LATER ON Create button for editing in case mistakes/cheating
-  return;
+    readyBtn.innerHTML = 'Next Round';
+    readyBtn.removeEventListener('click', gotIt);
+    setTimeout(function() {
+      readyBtn.addEventListener('click', leadToRoundPrep);
+    }, 1000);
+      // LATER ON Create button for editing in case mistakes/cheating
+      return;
 }
 
 function gotIt() {
@@ -158,9 +160,8 @@ function gotIt() {
   catToUse.array.splice(indexOfCurrentWord, 1);
 
   // Check if array needs to be repopulated
-  var backUpArray = backUpCategories[checkPosition];
   if(catToUse.array.length == 2) {
-    for(i = 0; i < backUpArray.length; i++) {
+    for(i = 0; i < catToUse.backUpArray.length; i++) {
       catToUse.array.push(backUpArray[i]);
       }
     }
@@ -198,9 +199,9 @@ var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
     catToUse.array.splice(indexOfCurrentWord, 1);
 
      // Check if array needs to be repopulated
-  var backUpArray = backUpCategories[checkPosition];
+  // var backUpArray = backUpCategories[checkPosition];
   if(catToUse.array.length == 2) {
-    for(i = 0; i < backUpArray.length; i++) {
+    for(i = 0; i < catToUse.backUpArray.length; i++) {
       catToUse.array.push(backUpArray[i]);
       }
     }

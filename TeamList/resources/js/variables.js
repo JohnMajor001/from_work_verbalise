@@ -3,7 +3,7 @@
                 Add More Categories + Themes (DISNEY THEME?!)
                 Rules - add images
                 Consider what may be necessary for 321 animation for all users
-                Trim input fields for security
+                Trim input fields for security -- must be done from serverside for full security: honeypot done + max characters anyway
                 Design drinking rules to implement
                 Pass Button alert: comes immediately underneath button, fades out after 5 seconds?
                 Edit Mistakes Page
@@ -35,7 +35,9 @@
 
                       /* To Test
                                 Ending page return Home button
-                                Pass button alert*/
+                                Pass button alert
+                                That Honey pot doesn't fuck anything up
+                                */
 var drinkRules = false;
 var noOfTeams = 0;
 var noOfPlayers = 0;
@@ -145,6 +147,7 @@ var internets = {
             'Raptor Jesus', 'Planking', 'Owling', 'Twerking', 'dis gon b gud', 'Unpopular opinion Puffin', 'Bitch please', 'Download', 'Zip file',
             'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale',
             'Yahoo', 'imgur'],
+  backUpArray: [],
 };
 
 // Standard Categories
@@ -191,7 +194,7 @@ var miscellaneous = {
              'Square peg', 'Invisible', 'Speculator', 'Sweet Dreams', 'Rush Hour Traffic', 'High time', 'Crush', 'Blind date', 'Kind Regards',
              'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram',
              'Beige', 'Purple'],
-
+    backUpArray: [],
 
 };
 var world = {
@@ -224,6 +227,7 @@ var world = {
           'Cologne', 'Stuttgart', 'Principality of Liechtenstein', 'Vaduz', 'Norway', 'Oslo', 'Finland', 'Helsinki', 'Severny Island', 'The North Pole',
           'Iceland', 'Reykjavik', 'Faroe Islands', 'Isle of Man', 'Jersey', 'Guernsey', 'Isle of Wight', 'Malta', 'Algiers', 'Murcia', 'Gibraltar',
           'Morocco', 'Togo', 'Seashore'],
+          backUpArray: [],
 };
 
 var objects = {
@@ -254,6 +258,7 @@ var objects = {
          'Trench Coat', 'Backpack', 'Polaroid Camera', 'Vacuum Cleaner', 'Q-tip', 'Cotton-bud', 'Toilet Brush', 'Stethoscope', 'Syringe',
          'Sphygmomanometer', 'Drum', 'Iron', 'Headphones', 'Fretboard', 'Bow and Arrow', 'Teapot', 'Crockery', 'Oven Gloves', 'Engine', 'Grandmother Clock',
          'Rattle'],
+         backUpArray: [],
 			};
 var actions = {
 	name: 'Verbs',
@@ -295,6 +300,7 @@ var actions = {
           'Guiding', 'Divulging', 'Discrediting', 'Deceiving', 'Receiving', 'Conceiving', 'Retrieving', 'Manouvering', 'Planning', 'Manning', 'Facing', 'Gracing',
           'Lacing', 'Resolving', 'Issuing', 'Thanking', 'Lounging', 'Spunging', 'Mounting', 'Descending', 'Ascending', 'Mulling', 'Pointing', 'Dripping',
           'Dropping', 'Asking', 'Coming', 'Regurgitating', 'Absconding', 'Probing', 'Casting'],
+          backUpArray: [],
 			};
 var nature = {
 	name: 'Nature',
@@ -348,6 +354,7 @@ var nature = {
           'Algae', 'Toadstool', 'Mushroom', 'Celery', 'Cabbage', 'Chickweed', 'Spinach', 'Turnip', 'Conifer', 'Palm Tree', 'Deciduous shrub', 'Northern Red Oak',
           'Almond', 'Peanut', 'Pistachio', 'Pecan', 'Bay laurel', 'European Beech', 'Brazil Nut', 'Weeping Willow', 'Silver birch', 'Camphor Tree',
           'Sugar Maple', 'Wasp', 'Parasite'],
+          backUpArray: [],
         };
 
 var person = {
@@ -363,7 +370,9 @@ var person = {
           'St. Patrick', 'Robbie Keane', 'John Hume', 'Sir John Major', 'Winston Churchill', 'Michael Collins', 'Éamon de Valera', 'Dr Ian Paisley',
           'Barry McGuigan', 'Paul O\'Connell', 'Brian O\'Driscoll', 'Gay Byrne', 'Dame Julie Andrews', 'Sacha Baron Cohen', 'Sean Bean', 'Christian Bale',
           'Hugh Laurie', 'Jude Law', 'Orlando Bloom', 'Sir Michael Caine', 'Helena Bonham Carter', 'Daniel Craig', 'Benedict Cumberbatch', 'Tom Felton',
-          'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', ],
+          'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', 'Emma Watson', 'Joanne Rowling',
+          'Samuel Beckett', 'Andrew Flintoff', 'Jessica Ennis', 'Anthony Joshua', 'Lennox Lewis', 'Prince Naseem Hamed', 'Ricky Hatton', 'Muhammad Ali'],
+          backUpArray: [],
 };
 var randomCategory = {
   name: 'Random',
@@ -377,44 +386,11 @@ categories.push(nature);
 categories.push(world);
 categories.push(miscellaneous);
 
-
-// Back up arrays
-var backUpCategories = [];
-
-var backUpObjects = [];
-for(let poop = 0; poop < objects.array.length; poop++) {
-	backUpObjects.push(objects.array[poop]);
+for(let poop = 0; poop < categories.length; poop++) {
+  for(let yo = 0; yo < categories[poop].array.length; yo++) {
+    categories[poop].backUpArray.push(categories[poop].array[yo]);
+  }
 }
-var backUpActions = [];
-for(let poop = 0; poop < actions.array.length; poop++) {
-	backUpActions.push(actions.array[poop]);
-}
-var backUpNature = [];
-for(let poop = 0; poop < nature.array.length; poop++) {
-	backUpNature.push(nature.array[poop]);
-}
-var backUpWorld = [];
-for(let poop = 0; poop < world.array.length; poop++) {
-	backUpWorld.push(world.array[poop]);
-}
-var backUpMisc = [];
-for(let poop = 0; poop < miscellaneous.array.length; poop++) {
-	backUpMisc.push(miscellaneous.array[poop]);
-}
-var backUpPerson = [];
-for(let poop = 0; poop < person.array.length; poop++) {
-  backUpPerson.push(person.array[poop]);
-}
-var backUpInternets = [];
-for(let poop = 0; poop < internets.array.length; poop++) {
-  backUpInternets.push(internets.array[poop]);
-}
-
-backUpCategories.push(backUpObjects);
-backUpCategories.push(backUpActions);
-backUpCategories.push(backUpNature);
-backUpCategories.push(backUpWorld);
-backUpCategories.push(backUpMisc);
 
 //Home Page on 17/04/18
 var home_page = `<h1 class="mainTitle" id='topTitle'>Verbalise</h1>

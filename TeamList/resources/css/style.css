@@ -4,7 +4,6 @@ html {
 p {
   margin-top: 0;
 }
-
 /* Rules */
 .roundTextContainer {
   height:12rem;
@@ -54,19 +53,12 @@ p {
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
 }
-/*.neonTrees {
-background-image: url('../images/neontrees.jpg');
-background-size: cover;
-}*/
 body {
   font-family: cursive;
   color: white;
   width: 100%;
-  /*background-image: url('../images/nature.jpg');
-  background-size: cover; */
   background-repeat: no-repeat;
   background-color: #b70303;
-
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -114,7 +106,6 @@ li {
   width: 10rem;
   height: 3rem;
 }
-
 .rulesArrows {
   max-width: 2rem;
   max-height: 2rem;
@@ -143,7 +134,6 @@ li {
     padding: 0.5rem 0;
     margin: 0;
 }
-
  input {
   background-color: rgba(247, 255, 248, 0.1);
   height: 2rem;
@@ -194,12 +184,12 @@ input::placeHolder {
   font-size: 3rem;
   font-family: 'Luckiest Guy', cursive;
 }
-.teamNames {
+.teamNames, .playerContainer {
   margin-right: 0.5rem;
-  margin-left: 0;
+
 }
-.playerContainer {
-  margin-right: 0.5rem;
+ .teamNames {
+  margin-left: 0;
 }
 .teamColor {
   color: blue;
@@ -207,9 +197,6 @@ input::placeHolder {
 .categoryColor {
   color: teal;
 }
-.describerColor {
-  color: yellow;
-}
-#noMorePassesAlert {
+.describerColor, #noMorePassesAlert {
   color: yellow;
 }
