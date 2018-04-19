@@ -177,8 +177,9 @@ function grabTeamNames() {
   while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
-  addItemBtn.className += ' hidden';
+  addItemBtn.className = 'hidden';
   readyBtn.removeEventListener("click", grabTeamNames);
   roundPrep(teamObjectsArray[whichTeamPlays%teamObjectsArray.length]);
   }
+
 }

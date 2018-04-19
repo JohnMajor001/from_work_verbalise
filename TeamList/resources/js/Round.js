@@ -1,4 +1,4 @@
-//                                                                Right Before Round Begins
+                                                       //   Right Before Round Begins
 function roundPrep(team) {
   document.getElementById('topTitle').className = 'hidden';
   readyBtn.addEventListener('click', countIn);
@@ -175,7 +175,6 @@ function mistakes() {
   } else {
     var helpContentEndMessage = 'Also, for shame.';
   }
-  // create options - NUMBER OF MINUSES SHOULD BE EQUAL TO THE NUMBER OF WORDS successfully described last round
   var helpContentDiv = document.createElement('div');
   helpContentDiv.id = 'helpContentID';
   usefulNumber += wordsSuccessfullyDescribed.length;
@@ -349,6 +348,8 @@ while(list.firstChild) {
   readyBtn.removeEventListener('click', gotIt);
   readyBtn.addEventListener('click', homePage);
   readyBtn.innerHTML = 'Home';
+  var mistakesWereMade = document.getElementById('passBtn');
+  mistakesWereMade.parentNode.removeChild(mistakesWereMade);
   return;
 } else {
   whichTeamPlays += 1;
@@ -356,14 +357,17 @@ while(list.firstChild) {
   roundPrep(newTeam);
   }
 }
+
+
 function homePage() {
-  while(list.firstChild) {
+  /*while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
+  document.getElementById('topTitle').className = 'mainTitle';
   readyBtn.innerHTML = 'Ready!';
   addItemBtn.className = 'btn initialBtn';
   // addItemBtn.addEventListener("click", addItem); - may not be necessary if we only hid this earlier
-  readyBtn.addEventListener("click", grabTeamNames);
+    readyBtn.addEventListener("click", grabTeamNames);
   // rulesBtn.addEventListener('click', showRules); - think button is always there and has event listener still
   // document.getElementById('closeRules').addEventListener('click', hideRules); if above is not necessary than neither is this
   // May need to put entire game in div? Might be a good idea anyway - may not be necessary if we only hid this earlier
@@ -378,4 +382,6 @@ function homePage() {
   whichTeamPlays = 0;
   categories.length = 0;
   // reset game
-}
+  */
+  location.reload();      // A Bad, shot-term solution
+  }

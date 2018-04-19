@@ -33,10 +33,8 @@
 
                       /* To Test
                                 Ending page returns to Home button
-                                Pass button alert
                                 That Honey pot doesn't fuck anything up
                                 WhichTeamPlays isn't dead
-                                In Timer function - take gotIt off at the exact same time as thingy - get rid of uncaught type error
                                 */
 var drinkRules = true;
 var noOfTeams = 0;
@@ -49,7 +47,7 @@ var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
 var wordsSuccessfullyDescribed = [];
-var toWin = 10;
+var toWin = 5;
 var noMorePassesText = 'All Passes used!';
 var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
@@ -382,7 +380,7 @@ var person = {
           backUpArray: [],
           drinkingLines: ['Drink if you would gladly bang any of people in the list next to Got \'Em',
                           'Drink if you have an irrational dislike of anyone in the list next to Got \'Em',
-                          'Take a vote with all present: who would lose a fight to first person in the Got \'Em list? That person must do a shot.'],
+                          'Take a vote with all present: which of you would lose a fight to the first person in the Got \'Em list? Those people must do a shot.'],
 };
 var randomCategory = {
   name: 'Random',
