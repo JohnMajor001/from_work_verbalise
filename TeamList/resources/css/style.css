@@ -68,6 +68,11 @@ body {
 h1 {
   font-size: 3rem;
   padding: 2rem 0;
+  text-shadow:
+  -1px -1px 0 black,
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
 }
 #rulesContent h1, h1, .num, .statsTable th, .btn,
 .finalTable th {
@@ -156,10 +161,12 @@ input::placeHolder {
   color: white;
   opacity: 0.6;
 }
-.deleteBtn  {
+.deleteBtn, .helpBtn  {
   height: 2rem;
   width: 2.5rem;
   cursor: pointer;
+}
+.deleteBtn {
   margin-left: 0.5rem;
 }
 .addItemBtn {
@@ -212,4 +219,12 @@ input::placeHolder {
   justify-content: center;
   flex-direction: column;
   text-align: center;
+}
+#helpContentID {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+#helpContentID span {
+  font-family: 'Architects Daughter', cursive;
 }

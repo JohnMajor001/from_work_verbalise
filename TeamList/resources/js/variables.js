@@ -6,7 +6,6 @@
                 Trim input fields for security -- must be done from serverside for full security: honeypot done + max characters anyway
                 Design drinking rules to implement
                 Switch statement for picking appropriate drinking line according to category
-                Edit Mistakes Page
                 Aesthetics - create front-page humorous animation,
                               Favicon/LOGO,
                               Make Team Name Box bigger,
@@ -57,7 +56,7 @@ var timesUpMessage = "Time's up!";
 var whichTeamPlays = Math.floor(Math.random());
 var timer = 5;
 var categories = [];
-
+var usefulNumber = 0;
 // Rules Content
 var nextArrow = document.getElementById('nextArrow');
 var rulesContent = document.getElementById('rulesContent');

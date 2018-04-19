@@ -159,7 +159,88 @@ function roundEnds() {
       // LATER ON Create button for editing in case mistakes/cheating
       return;
 }
+function mistakes() {
+  readyBtn.className = 'hidden';
+  var mistakesWereMade = document.getElementById('passBtn');
+  mistakesWereMade.removeEventListener('click', mistakes);
+  mistakesWereMade.innerHTML = 'Back';
+  // change Event LISTENERS
+    //clear Board
+  while(list.firstChild) {
+   list.removeChild(list.firstChild);
+  }
 
+  if(drinkRules) {
+    var helpContentEndMessage = 'Also, take a drink for your incompetence, Noob.';
+  } else {
+    var helpContentEndMessage = 'Also, for shame.';
+  }
+  // create options - NUMBER OF MINUSES SHOULD BE EQUAL TO THE NUMBER OF WORDS successfully described last round
+  var helpContentDiv = document.createElement('div');
+  helpContentDiv.id = 'helpContentID';
+  usefulNumber += wordsSuccessfullyDescribed.length;
+  let helpContent = `<h1>HELP</h1>
+                    <div>
+                        <span>YOU:Last round, I "accidentally" clicked 'Got it!' too many times...</span><br />
+                        <span>ME: *sigh* Use the box below to take away the points you undeservedly gave your team.</span><br />
+                        <span>It will contain the number of points you move forward so leave the number at what your score SHOULD have been and then click back.</span>
+                    </div>
+                    <span id='numberToChange'>${usefulNumber}</span>
+                    <div>
+                      <img class='helpBtn' id='helpContentPrevArrow' src='./resources/images/previousArrow.png'/>
+                      <img class='helpBtn' id='helpContentNextArrow' src='./resources/images/nextArrow.png'/>
+                    </div>
+                    <span>${helpContentEndMessage}</span>`;
+helpContentDiv.innerHTML = helpContent;
+list.appendChild(helpContentDiv);
+                    // Create a back Button
+document.getElementById('helpContentPrevArrow').addEventListener('click', decrement);
+document.getElementById('helpContentNextArrow').addEventListener('click', increment);
+mistakesWereMade.addEventListener('click', back);
+}
+function back() {
+  let passesAllGone = document.getElementById('noMorePassesSpan');
+  passesAllGone.className = 'hidden';
+  passesAllGone.innerHTML = noMorePassesText;
+
+  var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
+  currentTeam.position -= currentTeam.score;
+  currentTeam.score -= currentTeam.score;
+  currentTeam.score += usefulNumber;
+  // take number and do stuff to things
+  document.getElementById('helpContentPrevArrow').removeEventListener('click', decrement);
+  document.getElementById('helpContentNextArrow').removeEventListener('click', increment);
+  var mistakesWereMade = document.getElementById('passBtn');
+  mistakesWereMade.removeEventListener('click', back);
+  readyBtn.className = 'btn initialBtn';
+  usefulNumber -= usefulNumber;
+  roundEnds();
+}
+function decrement() {
+// document.getElementById('numberToChange').innerHTML;
+if(usefulNumber == 0) {
+  let passesAllGone = document.getElementById('noMorePassesSpan');
+  passesAllGone.className = 'noMorePassesSpan';
+  passesAllGone.innerHTML = 'Can\'t do that.';
+  setTimeout(function(){passesAllGone.className = 'hidden';}, 2000);
+  return;
+  } else {
+  usefulNumber--;
+  document.getElementById('numberToChange').innerHTML = usefulNumber;
+  }
+}
+function increment() {
+if(usefulNumber == wordsSuccessfullyDescribed.length) {
+  let passesAllGone = document.getElementById('noMorePassesSpan');
+  passesAllGone.className = 'noMorePassesSpan';
+  passesAllGone.innerHTML = 'Cheeky! Can\'t do that.';
+  setTimeout(function(){passesAllGone.className = 'hidden';}, 2000);
+  return;
+  } else {
+  usefulNumber++;
+  document.getElementById('numberToChange').innerHTML = usefulNumber;
+  }
+}
 function gotIt() {
   var wordBox = document.getElementById('spanWithWordToDescribe');
   //                                                    Get rid of uncaught type error
@@ -186,7 +267,7 @@ function gotIt() {
     currentTeam.score++;
     setTimeout(function() {
       readyBtn.addEventListener('click', gotIt);
-    }, 600);
+    }, 400);
   }
 }
 
@@ -221,9 +302,7 @@ var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
     currentTeam.passesUsed++;
   }
 }
-function mistakes() {
-  alert('This app is so bad and John is so lazy that this button doesn\'t even do anything');
-}
+
 function leadToRoundPrep() {
   //clear Board
 while(list.firstChild) {
