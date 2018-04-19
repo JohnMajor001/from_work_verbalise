@@ -5,7 +5,7 @@
                 Consider what may be necessary for 321 animation for all users
                 Trim input fields for security -- must be done from serverside for full security: honeypot done + max characters anyway
                 Design drinking rules to implement
-                Pass Button alert: comes immediately underneath button, fades out after 5 seconds?
+                Switch statement for picking appropriate drinking line according to category
                 Edit Mistakes Page
                 Aesthetics - create front-page humorous animation,
                               Favicon/LOGO,
@@ -13,7 +13,7 @@
                               Final screen css - table is moved to the right;
                 Settings Page - Reset Button, standard settings - create a drag and drop?
                 Give break down of game at final screen
-                Animation to show teams moving forward?
+                Animation to show teams moving forward? - This could happen after each Team has moved once, twice etc
                 Back to homepage - This will
                                           1. Show home page with team Names already entered in as per previous game
                                           2. Reset:
@@ -39,7 +39,7 @@
                                 WhichTeamPlays isn't dead
                                 In Timer function - take gotIt off at the exact same time as thingy - get rid of uncaught type error
                                 */
-var drinkRules = false;
+var drinkRules = true;
 var noOfTeams = 0;
 var noOfPlayers = 0;
 var addItemBtn = document.getElementById('addItemBtn');
@@ -149,7 +149,7 @@ var internets = {
             'Piratebay', 'Trial Account', 'Random', 'Actual footage of', 'Joe Rogan', 'Archbishop of Banterbury', 'Esteemed Character Actress Margo Martindale',
             'Yahoo', 'imgur'],
   backUpArray: [],
-  drinkingLines: [],
+  drinkingLines: ['Test'],
 };
 
 // Standard Categories
@@ -197,7 +197,7 @@ var miscellaneous = {
              'Sand-castle', 'Road to nowhere', 'Spaced-out', 'Downtrodden', 'Impass', 'Devastation', 'Devotion', 'Moonshine', 'Cornerstone', 'telegram',
              'Beige', 'Purple'],
     backUpArray: [],
-    drinkingLines: [],
+    drinkingLines: ['Test'],
 
 };
 var world = {
@@ -231,7 +231,7 @@ var world = {
           'Iceland', 'Reykjavik', 'Faroe Islands', 'Isle of Man', 'Jersey', 'Guernsey', 'Isle of Wight', 'Malta', 'Algiers', 'Murcia', 'Gibraltar',
           'Morocco', 'Togo', 'Seashore'],
           backUpArray: [],
-          drinkingLines: [],
+          drinkingLines: ['Test'],
 };
 
 var objects = {
@@ -254,16 +254,16 @@ var objects = {
          'Laundry Basket', 'Socket', 'Plug', 'Glasses', 'Clip Board', 'Stapler', 'Pen', 'Pencil', 'Eraser', 'Rubber', 'Hammock',
          'Lilo', 'Armband', 'Bandage', 'Toilet Roll', 'Cast', 'Paperweight', 'Bookends', 'Hair Clip', 'Fishing Line', 'Buoy', 'Boat',
          'Car', 'Lorry', 'Truck', 'Van', 'Dvd', 'Rubik\'s Cube', 'Purse', 'Hairband', 'Plastic bag', 'Blinds', 'Curtains',
-         'Rug', 'Dress', 'Skirt', 'Flip-flops', 'Sandals', 'Sneakers', 'Trainers', 'Shoes', 'High Heels', 'Yoga Pants', 'Yoga Mat',
+         'Rug', 'Dress', 'Skirt', 'Flip-flops', 'Sandals', 'Sneakers', 'Trainers', 'Shoes', 'High Heels', 'Yoga Mat',
          'Grandfather Clock', 'Yo-yo', 'Birdhouse', 'Doll House', 'Microphone', 'Steel Wool', 'Silencer', 'Revolver',
          'Shotgun', 'Led Pipe', 'Bagpipes', 'Vase', 'Bible', 'Qu\'ran', 'Cauldron', 'Lever Arch File', 'Bobble-head', 'Hair bobble',
          'Rubber band', 'Staff', 'Sleeve', 'Lipstick Container', 'Smoking Pipe', 'Cigarette', 'Bong', 'Didgeridoo', 'Pacifier',
          'Bib', 'Highchair', 'Dummy', 'Sleigh', 'Sledge hammer', 'Tyre', 'Tile', 'Kettle', 'Post-it Note', 'Telephone Box', 'Post Box',
          'Trench Coat', 'Backpack', 'Polaroid Camera', 'Vacuum Cleaner', 'Q-tip', 'Cotton-bud', 'Toilet Brush', 'Stethoscope', 'Syringe',
          'Sphygmomanometer', 'Drum', 'Iron', 'Headphones', 'Fretboard', 'Bow and Arrow', 'Teapot', 'Crockery', 'Oven Gloves', 'Engine', 'Grandmother Clock',
-         'Rattle'],
+         'Rattle', 'Toy', 'Ruler'],
          backUpArray: [],
-         drinkingLines: [],
+      drinkingLines: ['Test', 'Hi there'],
 			};
 var actions = {
 	name: 'Verbs',
@@ -306,7 +306,7 @@ var actions = {
           'Lacing', 'Resolving', 'Issuing', 'Thanking', 'Lounging', 'Spunging', 'Mounting', 'Descending', 'Ascending', 'Mulling', 'Pointing', 'Dripping',
           'Dropping', 'Asking', 'Coming', 'Regurgitating', 'Absconding', 'Probing', 'Casting'],
           backUpArray: [],
-          drinkingLines: [],
+          drinkingLines: ['Test'],
 			};
 var nature = {
 	name: 'Nature',
@@ -361,7 +361,7 @@ var nature = {
           'Almond', 'Peanut', 'Pistachio', 'Pecan', 'Bay laurel', 'European Beech', 'Brazil Nut', 'Weeping Willow', 'Silver birch', 'Camphor Tree',
           'Sugar Maple', 'Wasp', 'Parasite'],
           backUpArray: [],
-          drinkingLines: [],
+          drinkingLines: ['Test'],
         };
 
 var person = {
@@ -378,21 +378,18 @@ var person = {
           'Barry McGuigan', 'Paul O\'Connell', 'Brian O\'Driscoll', 'Gay Byrne', 'Dame Julie Andrews', 'Sacha Baron Cohen', 'Sean Bean', 'Christian Bale',
           'Hugh Laurie', 'Jude Law', 'Orlando Bloom', 'Sir Michael Caine', 'Helena Bonham Carter', 'Daniel Craig', 'Benedict Cumberbatch', 'Tom Felton',
           'Daniel Radcliffe', 'Simon Pegg', 'Christopher Eccleston', 'Ralph Fiennes', 'Arthur Miller', 'George Orwell', 'Emma Watson', 'Joanne Rowling',
-          'Samuel Beckett', 'Andrew Flintoff', 'Jessica Ennis', 'Anthony Joshua', 'Lennox Lewis', 'Prince Naseem Hamed', 'Ricky Hatton', 'Muhammad Ali'],
+          'Samuel Beckett', 'Andrew Flintoff', 'Jessica Ennis', 'Anthony Joshua', 'Lennox Lewis', 'Prince Naseem Hamed', 'Ricky Hatton', 'Muhammad Ali',
+          'Joe Frasier', 'Donald Trump', 'Barrack Obama', 'George Bush Sr', 'Al Gore', 'Ronald McDonald', 'Ronald Reagan', 'Christopher Collumbus'],
           backUpArray: [],
           drinkingLines: ['Drink if you would gladly bang any of people in the list next to Got \'Em',
                           'Drink if you have an irrational dislike of anyone in the list next to Got \'Em',
-                          'Take a vote with all present: '],
+                          'Take a vote with all present: who would lose a fight to first person in the Got \'Em list? That person must do a shot.'],
 };
 var randomCategory = {
   name: 'Random',
   array: [],
 };
-for(let poop = 0; poop < categories.length; poop++) {
-  for(let yo = 0; yo < categories[poop].array.length; yo++) {
-    categories[poop].backUpArray.push(categories[poop].array[yo]);
-  }
-}
+
 // Order of Categories on the board is determined by this
 // Settings page made like this
 categories.push(objects);
@@ -400,6 +397,12 @@ categories.push(actions);
 categories.push(nature);
 categories.push(world);
 categories.push(miscellaneous);
+
+for(let poop = 0; poop < categories.length; poop++) {
+  for(let yo = 0; yo < categories[poop].array.length; yo++) {
+    categories[poop].backUpArray.push(categories[poop].array[yo]);
+  }
+}
 //Home Page on 17/04/18
 var home_page = `<h1 class="mainTitle" id='topTitle'>Verbalise</h1>
                 <div class="hidden" id='modal'>

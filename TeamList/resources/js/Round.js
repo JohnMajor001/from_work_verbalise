@@ -136,7 +136,16 @@ function roundEnds() {
   // Change buttons
   if(drinkRules) {
     var drinkDiv = document.createElement('div');
-    var drinkDivContent = ``;
+    var drinksArray = catToUse.drinkingLines;
+    if(wordsSuccessfullyDescribed.length == 0) {
+      var drinkDivContent = `<h1>LOOKY HERE</h1>
+                            <p>Team <span class='teamColor'>${currentTeam.name}</span> take 3 drinks each for that abysmal performance.<br /><br />Trouts</p>`;
+    } else {
+      var drinkDivContent = `<h1>LOOKY HERE</h1>
+                            <p>${drinksArray[Math.floor(Math.random() * drinksArray.length)]}</p>`; // IF UNDEFINED APPEARS PUT MINUS 1 AFTER .LENGTH
+    }
+    drinkDiv.innerHTML = drinkDivContent;
+    list.appendChild(drinkDiv);
   }
     var mistakesWereMade = document.getElementById('passBtn');
     mistakesWereMade.removeEventListener('click', passed);
