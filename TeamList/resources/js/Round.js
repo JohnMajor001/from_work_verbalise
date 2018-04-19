@@ -39,27 +39,28 @@ function roundBegins() {
     list.removeChild(list.firstChild);
   }
   readyBtn.className = 'btn initialBtn';
-  rulesBtn.className = 'btn initialBtn';
   // Create New Board
   var timerHtml = `<h1 id='timerNumbers'>${timer}</h1>`;
   var timerSection = document.createElement('div');
   timerSection.innerHTML = timerHtml;
   list.appendChild(timerSection);
-  var passButtonHtml = `<button class="btn" id='passBtn'>Pass</button>`;
+
   var gameDiv = document.createElement('div');
   gameDiv.className = 'describeText';
   gameDiv.innerHTML = `<span id='youMustDescribe'>Describe:</span><br />
   						         <span id='spanWithWordToDescribe'></span><br />`;
   list.appendChild(gameDiv);
   readyBtn.innerHTML = 'Got it!';
-  if(maximumPasses == 0) {
 
-  }
+    var passButtonHtml = `<button class="btn" id='passBtn'>Pass</button>
+                          <span class='hidden' id='noMorePassesSpan'>${noMorePassesText}</span>`;
+
   readyBtn.insertAdjacentHTML('afterend', passButtonHtml)
-  readyBtn.removeEventListener('click', roundBegins);
-  readyBtn.addEventListener('click', gotIt);
   var passBtn = document.getElementById('passBtn');
   passBtn.addEventListener('click', passed);
+  readyBtn.removeEventListener('click', roundBegins);
+  readyBtn.addEventListener('click', gotIt);
+
   // Finding which array to use
   var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   var checkPosition = (currentTeam.position - 1)%categories.length;
@@ -89,6 +90,8 @@ function roundBegins() {
     var stopWatchHere = setInterval(updateCountdown, 1000);
     function stopUpdating() {
       clearInterval(stopWatchHere);
+      readyBtn.removeEventListener('click', gotIt);
+      document.getElementById('noMorePassesSpan').className = 'hidden';
       roundEnds();
     }
     setTimeout(stopUpdating, timeLength);
@@ -99,6 +102,7 @@ function roundEnds() {
   while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
+  rulesBtn.className = 'btn initialBtn';
   // Get current information
   var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   // increment position
@@ -140,7 +144,6 @@ function roundEnds() {
     mistakesWereMade.innerHTML = 'Help';
 
     readyBtn.innerHTML = 'Next Round';
-    readyBtn.removeEventListener('click', gotIt);
     setTimeout(function() {
       readyBtn.addEventListener('click', leadToRoundPrep);
     }, 1000);
@@ -149,46 +152,43 @@ function roundEnds() {
 }
 
 function gotIt() {
-  readyBtn.removeEventListener('click', gotIt);
   var wordBox = document.getElementById('spanWithWordToDescribe');
-  var currentWord = wordBox.innerHTML;
-  var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
-  var checkPosition = (currentTeam.position - 1)%categories.length;
-  var catToUse = categories[checkPosition];
-  var indexOfCurrentWord = catToUse.array.indexOf(`${currentWord}`);
-  wordsSuccessfullyDescribed.push(currentWord);
-  catToUse.array.splice(indexOfCurrentWord, 1);
-
-  // Check if array needs to be repopulated
-  if(catToUse.array.length == 2) {
-    for(i = 0; i < catToUse.backUpArray.length; i++) {
-      catToUse.array.push(backUpArray[i]);
+  //                                                    Get rid of uncaught type error
+  if(wordBox!=null) {
+    readyBtn.removeEventListener('click', gotIt);
+    var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
+    var checkPosition = (currentTeam.position - 1)%categories.length;
+    var catToUse = categories[checkPosition];
+    var currentWord = wordBox.innerHTML;
+    var indexOfCurrentWord = catToUse.array.indexOf(`${currentWord}`);
+    wordsSuccessfullyDescribed.push(currentWord);
+    catToUse.array.splice(indexOfCurrentWord, 1);
+    // Check if array needs to be repopulated
+    if(catToUse.array.length == 2) {
+      for(i = 0; i < catToUse.backUpArray.length; i++) {
+        catToUse.array.push(backUpArray[i]);
+        }
       }
-    }
 
-  var randomIndex = Math.floor(Math.random() * catToUse.array.length);
-  var newWord = catToUse.array[randomIndex];
+    var randomIndex = Math.floor(Math.random() * catToUse.array.length);
+    var newWord = catToUse.array[randomIndex];
 
-  wordBox.innerHTML = newWord;
-  currentTeam.score++;
-  setTimeout(function() {
-    readyBtn.addEventListener('click', gotIt);
-  }, 600);
+    wordBox.innerHTML = newWord;
+    currentTeam.score++;
+    setTimeout(function() {
+      readyBtn.addEventListener('click', gotIt);
+    }, 600);
+  }
 }
 
 function passed() {
   var passBtn = document.getElementById('passBtn');
-  passBtn.removeEventListener('click', passed);
 var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
   if(currentTeam.passesUsed == maximumPasses) {
-    alert('No more passes this round');           // This will need to be changed to something that looks better
-    var noMorePasses = `<span id='noMorePassesAlert'>${noMorePassesText}</span>`;
-    passBtn.insertAdjacentHTML('afterend', noMorePasses);
-    setTimeout(function() {
-      var idhere = document.getElementById('noMorePassesAlert');
-      idhere.parentNode.removeChild(idhere);
-    }, 4000);
-
+    let passesAllGone = document.getElementById('noMorePassesSpan');
+    passesAllGone.className = 'noMorePassesSpan';
+    passBtn.removeEventListener('click', passed);
+    // setTimeout(function(){passesAllGone.className = 'hidden';}, 2000);
     return;
   } else {
     var wordBox = document.getElementById('spanWithWordToDescribe');
@@ -210,10 +210,6 @@ var currentTeam = teamObjectsArray[whichTeamPlays%teamObjectsArray.length];
     var newWord = catToUse.array[randomIndex];
     wordBox.innerHTML = newWord;
     currentTeam.passesUsed++;
-
-    setTimeout(function() {
-    document.getElementById('passBtn').removeEventListener('click', passed);
-  }, 600);
   }
 }
 function mistakes() {
@@ -273,10 +269,18 @@ while(list.firstChild) {
   }
 }
 function homePage() {
-  // document.innerHTML = home_page; -> This doesn't do anything
-  // May need to put entire game in div? Might be a good idea anyway
-  alert('Yeah this doesn\'t do anything either');
-  alert('You should fix that');
+  while(list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+  readyBtn.innerHTML = 'Ready!';
+  addItemBtn.className = 'btn initialBtn';
+  // addItemBtn.addEventListener("click", addItem); - may not be necessary if we only hid this earlier
+  readyBtn.addEventListener("click", grabTeamNames);
+  // rulesBtn.addEventListener('click', showRules); - think button is always there and has event listener still
+  // document.getElementById('closeRules').addEventListener('click', hideRules); if above is not necessary than neither is this
+  // May need to put entire game in div? Might be a good idea anyway - may not be necessary if we only hid this earlier
+  // alert('Yeah this doesn\'t do anything either');
+  // alert('You should fix that');
 
   noOfTeams = 0;
   noOfPlayers = 0;

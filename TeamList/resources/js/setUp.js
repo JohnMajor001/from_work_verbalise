@@ -125,16 +125,17 @@ function grabTeamNames() {
      //create arrays of team names and player names
               for(i=0; i < teamNames.length; i++) {
                   teamNamesArray.push(teamNames[i].value);
+                  // If no values are entered, get rid of that shit
                   if(teamNames[i].value == '') {
-                    alert('Please enter your team names');
+                    alert('Please enter your team names');        // CHANGE THIS TO SOMETHING GOOD
                     for(let y=0; y < teamNames.length; y++) {
                       teamNamesArray.pop();
                     }
-        for(let y=0; y < playerNames.length; y++) {
-          PlayerNamesArray.pop();
-          return;
-            }
-          }
+                    for(let y=0; y < playerNames.length; y++) {
+                      playerNamesArray.pop();
+                      return;
+                        }
+                    }
         }
     // loop through playerNamesArray to form new array
     for(i=0; i < playerNames.length; i++) {

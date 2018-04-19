@@ -1,7 +1,7 @@
 // NAME: VERBALISE?!!!!
 /* Things to do
                 Add More Categories + Themes (DISNEY THEME?!)
-                Rules - add images
+                Rules - add images, make disappear during round
                 Consider what may be necessary for 321 animation for all users
                 Trim input fields for security -- must be done from serverside for full security: honeypot done + max characters anyway
                 Design drinking rules to implement
@@ -10,7 +10,7 @@
                 Aesthetics - create front-page humorous animation,
                               Favicon/LOGO,
                               Make Team Name Box bigger,
-                              Final screen css
+                              Final screen css - table is moved to the right;
                 Settings Page - Reset Button, standard settings - create a drag and drop?
                 Give break down of game at final screen
                 Animation to show teams moving forward?
