@@ -1,4 +1,4 @@
-                                                       //   Right Before Round Begins
+                                                    //   Right Before Round Begins
 function roundPrep(team) {
   document.getElementById('topTitle').className = 'hidden';
   readyBtn.addEventListener('click', countIn);
@@ -360,7 +360,7 @@ while(list.firstChild) {
 
 
 function homePage() {
-  /*while(list.firstChild) {
+  while(list.firstChild) {
     list.removeChild(list.firstChild);
   }
   document.getElementById('topTitle').className = 'mainTitle';
@@ -374,14 +374,14 @@ function homePage() {
   // alert('Yeah this doesn\'t do anything either');
   // alert('You should fix that');
 
-  noOfTeams = 0;
-  noOfPlayers = 0;
+  noOfTeams -= noOfTeams;
+  noOfPlayers -= noOfPlayers;
   teamNamesArray.length = 0;
   playerNamesArray.length = 0;
   teamObjectsArray.length = 0;
-  whichTeamPlays = 0;
+  whichTeamPlays -= whichTeamPlays;
   categories.length = 0;
   // reset game
-  */
-  location.reload();      // A Bad, shot-term solution
+
+  // location.reload();      // A Bad, shot-term solution
   }

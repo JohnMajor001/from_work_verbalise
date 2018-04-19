@@ -36,6 +36,7 @@
                                 That Honey pot doesn't fuck anything up
                                 WhichTeamPlays isn't dead
                                 */
+                                
 var drinkRules = true;
 var noOfTeams = 0;
 var noOfPlayers = 0;

@@ -1,4 +1,4 @@
-window.onload = function() {
+
 // add Item button can add children
 addItemBtn.addEventListener("click", addItem);
 // getting team names as long as more than 2 are created
@@ -181,5 +181,3 @@ function grabTeamNames() {
   readyBtn.removeEventListener("click", grabTeamNames);
   roundPrep(teamObjectsArray[whichTeamPlays%teamObjectsArray.length]);
   }
-
-}
