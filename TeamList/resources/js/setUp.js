@@ -37,10 +37,10 @@ function showSettings() {
                       <div class='settings-row'>
                         <span>Points needed to win</span>
                         <select id='pointsToWinSelect'>
+                        <option value='${sixty}'>${sixty}</option>
                           <option value='${twenty}'>${twenty}</option>
                           <option value='${thirty}'>${thirty}</option>
                           <option value='${forty}'>${forty}</option>
-                          <option value='${sixty}'>${sixty}</option>
                           <option value='${eighty}'>${eighty}</option>
                           <option value='${hundred}'>${hundred}</option>
                           <option value='${twohundred}'>${twohundred}</option>
@@ -57,10 +57,10 @@ function showSettings() {
                       <div class='settings-row'>
                         <span>Passes per Round</span>
                         <select id='passesSelect'>
+                          <option value='${three}'>${three}</option>
                           <option value='${zero}'>${zero}</option>
                           <option value='${one}'>${one}</option>
                           <option value='${two}'>${two}</option>
-                          <option value='${three}'>${three}</option>
                           <option value='${four}'>${four}</option>
                           <option value='${five}'>${five}</option>
                         </select>
