@@ -382,8 +382,7 @@ function homePage() {
   playerNamesArray.length = 0;
   teamObjectsArray.length = 0;
   whichTeamPlays -= whichTeamPlays;
-  categories.length = 0;
   // reset game
 
-  // location.reload();      // A Bad, shot-term solution
+  // location.reload();      // A Bad, short-term solution
   }

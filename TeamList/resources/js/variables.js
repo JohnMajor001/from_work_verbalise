@@ -11,9 +11,8 @@
                               Favicon/LOGO,
                               Make Team Name Box bigger,
                               Final screen css - table is moved to the right;
-                Settings Page - Reset Button, standard settings - create a drag and drop?
-                Give break down of game at final screen
-                Animation to show teams moving forward? - This could happen after each Team has moved once, twice etc
+                Settings Page - Adding/Removing Catagories, animation once it's been saved.
+                Animation to show teams moving forward? - This could happen after every Team has moved e.g. one round for each team has passed.
                 Back to homepage - This will
                                           1. Show home page with team Names already entered in as per previous game
                                           2. Reset:
@@ -388,7 +387,8 @@ var person = {
           backUpArray: [],
           drinkingLines: ['Drink if you would gladly bang any of people in the list next to Got \'Em',
                           'Drink if you have an irrational dislike of anyone in the list next to Got \'Em',
-                          'Take a vote with all present: which of you would lose a fight to the first person in the Got \'Em list? Those people must do a shot.'],
+                          'Take a vote with all present: which of you would lose a fight to the first person in the Got \'Em list? Those people must do a shot.',
+                          ],
 };
 var randomCategory = {
   name: 'Random',

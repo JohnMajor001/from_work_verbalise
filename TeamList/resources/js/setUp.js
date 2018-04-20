@@ -17,6 +17,7 @@ function showSettings() {
     document.getElementById('settings-modal').className = 'settings-modal';
     document.getElementById('settings-container').className = 'modal-container';
   }, 1);
+  let zero = 0;
   let one = 1;
   let two = 2;
   let three = 3;
@@ -37,6 +38,7 @@ function showSettings() {
                         <span>Points needed to win</span>
                         <select id='pointsToWinSelect'>
                           <option value='${twenty}'>${twenty}</option>
+                          <option value='${thirty}'>${thirty}</option>
                           <option value='${forty}'>${forty}</option>
                           <option value='${sixty}'>${sixty}</option>
                           <option value='${eighty}'>${eighty}</option>
@@ -55,6 +57,7 @@ function showSettings() {
                       <div class='settings-row'>
                         <span>Passes per Round</span>
                         <select id='passesSelect'>
+                          <option value='${zero}'>${zero}</option>
                           <option value='${one}'>${one}</option>
                           <option value='${two}'>${two}</option>
                           <option value='${three}'>${three}</option>
