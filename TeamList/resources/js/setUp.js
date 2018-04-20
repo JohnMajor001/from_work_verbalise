@@ -7,6 +7,101 @@ readyBtn.addEventListener("click", grabTeamNames);
 rulesBtn.addEventListener('click', showRules);
 // close rules btn event addEventListener
 document.getElementById('closeRules').addEventListener('click', hideRules);
+// Show SettingsBtn Event LISTENER
+settingsBtn.addEventListener('click', showSettings);
+// Show/Hide Settings;
+function showSettings() {
+   document.getElementById('settings-modal').className = 'initialSettings';
+   document.getElementById('settings-container').className = 'initialSettings';
+  setTimeout(function(){
+    document.getElementById('settings-modal').className = 'settings-modal';
+    document.getElementById('settings-container').className = 'modal-container';
+  }, 1);
+  let one = 1;
+  let two = 2;
+  let three = 3;
+  let four = 4;
+  let five = 5;
+
+  let twenty = 20;
+  let forty = 40;
+  let sixty = 60;
+  let eighty = 80;
+  let hundred = 100;
+  let twohundred = 200;
+
+  let thirty = 30;
+  let fortyfive = 45;
+  let settingsHTML = `<h1>Settings</h1>
+                      <div class='settings-row'>
+                        <span>Points needed to win</span>
+                        <select id='pointsToWinSelect'>
+                          <option value='${twenty}'>${twenty}</option>
+                          <option value='${forty}'>${forty}</option>
+                          <option value='${sixty}'>${sixty}</option>
+                          <option value='${eighty}'>${eighty}</option>
+                          <option value='${hundred}'>${hundred}</option>
+                          <option value='${twohundred}'>${twohundred}</option>
+                        </select>
+                      </div>
+                      <div class='settings-row'>
+                        <span>Timer for each Round(seconds)</span>
+                        <select id='timerSelect'>
+                          <option value='${thirty}'>${thirty}</option>
+                          <option value='${fortyfive}'>${fortyfive}</option>
+                          <option value='${sixty}'>${sixty}</option>
+                        </select>
+                      </div>
+                      <div class='settings-row'>
+                        <span>Passes per Round</span>
+                        <select id='passesSelect'>
+                          <option value='${one}'>${one}</option>
+                          <option value='${two}'>${two}</option>
+                          <option value='${three}'>${three}</option>
+                          <option value='${four}'>${four}</option>
+                          <option value='${five}'>${five}</option>
+                        </select>
+                      </div>
+                      <div class='settings-row'>
+                        <span>Drinking Rules</span>
+                        <select id='drinkingSelect'>
+                          <option value='Disabled'>Disabled</option>
+                          <option value='Enabled'>Enabled</option>
+                        </select>
+                      </div>`;
+                      /*var drinkRules = true;
+                      var toWin = 5;
+                      var timer = 5;
+                      var maximumPasses = 3;*/
+
+  document.getElementById('settingsContent').innerHTML = settingsHTML;
+  document.getElementById('closeSettings').addEventListener('click', hideSettings);
+  document.getElementById('saveSettings').addEventListener('click', saveSettings);
+
+}
+function saveSettings() {
+  // grab values
+  let pointsToWinSelect = document.getElementById('pointsToWinSelect').value;
+  let timerSelect = document.getElementById('timerSelect').value;
+  let passesSelect = document.getElementById('passesSelect').value;
+  let drinkingSelect = document.getElementById('drinkingSelect').value;
+  // edit global variables
+  timer = timerSelect;
+  toWin = pointsToWinSelect;
+  maximumPasses = passesSelect;
+
+  if(drinkingSelect == 'Enabled') {
+    drinkRules = true;
+  } else {
+    drinkRules = false;
+  }
+  hideSettings();
+}
+function hideSettings() {
+  document.getElementById('settings-modal').className = 'hidden';
+  document.getElementById('settings-container').className = 'hidden';
+
+}
 // Show and hide rules
 function showRules() {
   document.getElementById('closeRules').className = 'hidden';
@@ -16,7 +111,7 @@ function showRules() {
     document.getElementById('modal').className = 'modal';
     document.getElementById('modal-container').className = 'modal-container';
    // list.className = 'hidden';
-  }, 100);
+  }, 1);
 
   rulesContent.innerHTML = rulesNo1;
   nextArrow.className = 'rulesArrows';
@@ -179,5 +274,8 @@ function grabTeamNames() {
   }
   addItemBtn.className = 'hidden';
   readyBtn.removeEventListener("click", grabTeamNames);
+  // Ensure first team that starts is random
+  let randomStart = Math.floor(Math.random() * noOfTeams);
+  whichTeamPlays += randomStart;
   roundPrep(teamObjectsArray[whichTeamPlays%teamObjectsArray.length]);
   }

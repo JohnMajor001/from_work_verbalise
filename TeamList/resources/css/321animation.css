@@ -55,7 +55,7 @@
 .finalTable td {
 	min-width: 20rem;
 }
-.describeText, .statsTable td, .finalTable td {
+.describeText, .statsTable td, .finalTable td, .settings-row span {
 	font-family: 'Architects Daughter', cursive;
 }
 .describeText {

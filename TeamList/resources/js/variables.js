@@ -2,6 +2,7 @@
 /* Things to do
                 Add More Categories + Themes (DISNEY THEME?!)
                 Rules - add images, make disappear during round
+                Quit Btn
                 Consider what may be necessary for 321 animation for all users
                 Trim input fields for security -- must be done from serverside for full security: honeypot done + max characters anyway
                 Design drinking rules to implement
@@ -36,29 +37,35 @@
                                 That Honey pot doesn't fuck anything up
                                 WhichTeamPlays isn't dead
                                 */
-                                
-var drinkRules = true;
+// Basic settings Changes
+var drinkRules = false;
+var toWin = 5;
+var timer = 5;
+var maximumPasses = 3;
+
 var noOfTeams = 0;
 var noOfPlayers = 0;
+// Buttons and Ids
+var settingsBtn = document.getElementById('settingsBtn');
 var addItemBtn = document.getElementById('addItemBtn');
 var list = document.getElementById('list');
 var readyBtn = document.getElementById('readyBtn');
 var rulesBtn = document.getElementById('rules');
+var nextArrow = document.getElementById('nextArrow');
+var rulesContent = document.getElementById('rulesContent');
+
+
 var teamNamesArray = [];
 var playerNamesArray = [];
 var teamObjectsArray = [];
 var wordsSuccessfullyDescribed = [];
-var toWin = 5;
 var noMorePassesText = 'All Passes used!';
-var maximumPasses = 3; // Only Useful really when settings page is created
 var timesUpMessage = "Time's up!";
-var whichTeamPlays = Math.floor(Math.random());
-var timer = 5;
+var whichTeamPlays = 0; // Math.floor(Math.random() * (noOfTeams);
+
 var categories = [];
 var usefulNumber = 0;
 // Rules Content
-var nextArrow = document.getElementById('nextArrow');
-var rulesContent = document.getElementById('rulesContent');
 var rulesNo1 = `<h1>Overview</h1>
                 <p>This game requires a minimum of two teams with 2-3 players on each team.
                 The aim of the game is to get to the finish line first!</p><br />
@@ -364,7 +371,7 @@ var nature = {
 
 var person = {
   name: 'People and Characters',
-  array: ['Charlie Chaplain', 'Hugh Jackman', 'Second Cousin', 'Rachel Bloom', 'Vasyl Lomachenko', 'Gervonta Davis', 'Sylvestor Stalone', 'Jennifer Aniston',
+  array: ['Basil Brush', 'Charlie Chaplain', 'Hugh Jackman', 'Second Cousin', 'Rachel Bloom', 'Vasyl Lomachenko', 'Gervonta Davis', 'Sylvestor Stalone', 'Jennifer Aniston',
           'David Schwimmer', 'Matthew Perry', 'Matt LeBlanc', 'Lisa Kudrow', 'Courtney Cox', 'Brad Pitt', 'Angelina Jolie', 'Simon Cowell', 'Bruce Springsteen',
           'Meryl Streep', 'Speedy Gonzales', 'Romeo and Juliette', 'The Abbott of Westminster', 'Abraham', 'Jesus', 'Muhammad', 'Hamlet', 'Macbeth',
           'Aslan', 'Daniel Day-Lewis', 'Liam Neeson', 'Colin Farrell', 'Jamie Dornan', 'Michael Fassbender', 'Brendan Gleeson', 'Brian Gleeson', 'Domhnall Gleeson',

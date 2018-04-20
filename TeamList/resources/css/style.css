@@ -26,13 +26,13 @@ p {
   width: 70%;
   max-width: 400px;
 }
-.initialModal {
+.initialModal, .initialSettings {
   opacity: 0;
   transition: opacity .25s ease-in-out;
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
 }
-.modal:before {
+.modal:before, .settings-modal:before {
   opacity: 0.7;
   transition: opacity .25s ease-in-out;
  -moz-transition: opacity .25s ease-in-out;
@@ -54,7 +54,7 @@ p {
   -webkit-transition: opacity .25s ease-in-out;
 }
 body {
-  font-family: cursive;
+  font-family: helvetica, sans-serif;
   color: white;
   width: 100%;
   background-repeat: no-repeat;
@@ -74,15 +74,15 @@ h1 {
   -1px 1px 0 black,
   1px 1px 0 black;
 }
-#rulesContent h1, h1, .num, .statsTable th, .btn,
+#settingsContent, #rulesContent h1, h1, .num, .statsTable th, .btn,
 .finalTable th {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', impact, helvetica, sans-serif;
 }
 #rulesContent h1 {
   font-size: 2rem;
 }
 #rulesContent p, #rulesContent li, input {
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Architects Daughter', helvetica, sans-serif;
 }
 .rulesList li {
   list-style-type: circle;
@@ -90,7 +90,7 @@ h1 {
 li {
   display: flex;
   align-items: center;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Luckiest Guy', helvetica, sans-serif;
 }
 .btn {
   background-color: rgb(234, 93, 11, 0.3);
@@ -103,7 +103,7 @@ li {
   align-items: center;
   justify-content: center;
 }
-.btn:hover {
+.btn:hover, #saveSettings:hover {
   background-color: #efe007;
   color: #700000;
 }
@@ -118,10 +118,13 @@ li {
 #rulesContent {
   padding: 1rem;
 }
-.rules-bottom-bar, #rules-bottom-bar-right {
+.rules-bottom-bar, #rules-bottom-bar-right, .settings-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.settings-row {
+  padding: 0.5rem;
 }
 #rules-bottom-bar-right {
   width: 5rem;
@@ -189,7 +192,7 @@ input::placeHolder {
 .roundText, .noMorePassesSpan {
   text-align: center;
   font-size: 3rem;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Luckiest Guy', helvetica, sans-serif;
 }
 .teamNames, .playerContainer {
   margin-right: 0.5rem;
@@ -226,5 +229,9 @@ input::placeHolder {
   flex-direction: column;
 }
 #helpContentID span {
-  font-family: 'Architects Daughter', cursive;
+  font-family: 'Architects Daughter', helvetica, sans-serif;
+}
+#saveSettings {
+	background: #b70303;
+  color: #17c13b;
 }

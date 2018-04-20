@@ -1,5 +1,6 @@
                                                     //   Right Before Round Begins
 function roundPrep(team) {
+  settingsBtn.className = 'hidden';
   document.getElementById('topTitle').className = 'hidden';
   readyBtn.addEventListener('click', countIn);
   var heading = document.createElement('div');
@@ -366,6 +367,7 @@ function homePage() {
   document.getElementById('topTitle').className = 'mainTitle';
   readyBtn.innerHTML = 'Ready!';
   addItemBtn.className = 'btn initialBtn';
+  settingsBtn.className = 'btn initialBtn';
   // addItemBtn.addEventListener("click", addItem); - may not be necessary if we only hid this earlier
     readyBtn.addEventListener("click", grabTeamNames);
   // rulesBtn.addEventListener('click', showRules); - think button is always there and has event listener still

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1 class="mainTitle" id='topTitle'>Verbalise</h1>
-
+<!-- Rules -->
 	<div class="hidden" id='modal'>
     <div id='modal-container'>
       	<p id='rulesContent'></p>
@@ -22,12 +22,23 @@
   		</div>
   	</div>
   </div>
-
+<!-- Settings-->
+  <div class="hidden" id='settings-modal'>
+    <div id='settings-container'>
+        <div id='settingsContent'></div>
+        <div class='settings-row'>
+          <img class='deleteBtn' src='./resources/images/crossButton.jpg' id='closeSettings'/>
+          <button class="btn initialBtn" type="button" id="saveSettings">Save</button>
+        </div>
+    </div>
+  </div>
+<!-- Game -->
 <button class="btn initialBtn" type="button" id="rules">Rules</button>
 <button class="btn initialBtn" type="button" id="addItemBtn">Add Team</button>
 <div id='list'></div>
 <input class='hidden' id="computer" maxlength="4"></input>
 <button class="btn initialBtn" id="readyBtn">Ready!</button>
+<button class="btn initialBtn" id="settingsBtn">Settings</button>
 
 
 <script src="./resources/js/variables.js"></script>
