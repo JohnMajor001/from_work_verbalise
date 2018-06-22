@@ -69,7 +69,7 @@ body {
   margin: 2rem 0;
   font-size: 2rem;
   width: 95%;
-  height: 80%; 
+  height: 80%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -96,9 +96,14 @@ body {
   margin-left: 10rem;
 }
 
-
 #boardKey span {
 color: #fff;
+}
+
+@media (max-width:980px) {
+  #boardKey {
+
+  }
 }
 
 h1 {
@@ -110,9 +115,11 @@ h1 {
   -1px 1px 0 black,
   1px 1px 0 black;
 }
+
 p {
   margin-top: 0;
 }
+
 /* For Hiding elements temporarily
  e.g. settings during a round phase */
 .hidden {

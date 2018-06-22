@@ -70,7 +70,7 @@ var whichTeamPlays = 0;
 var allThemes = [];
 var categories = [];
 var standardCategories = [];
-var spicyCategories = [];
+var popCultureCategories = [];
 var disneyCategories = [];
 var usefulNumber = 0;
 
@@ -706,9 +706,11 @@ standardCategories.push(nature);
 standardCategories.push(places);
 standardCategories.push(miscellaneous);
 standardCategories.push(person);
-standardCategories.push(internets);
 
-spicyCategories.push(internets);
+popCultureCategories.push(disney);
+popCultureCategories.push(internets);
+popCultureCategories.push(harryPotter);
+popCultureCategories.push(marvel);
 
 allThemes.push(standardCategories);
-allThemes.push(spicyCategories);
+allThemes.push(popCultureCategories);

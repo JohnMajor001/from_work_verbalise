@@ -15,7 +15,6 @@ var arrayOfColours = ['red', 'green', 'orange', 'yellow', 'blue', 'purple',
 arrayOfColours.length = categories.length;
 var distBetweenParticles = (rPie - blackCircleR)/noOfTeams;
 
-
 function drawPieSlice(c,centerX, centerY, radius, startAngle, endAngle, color ){
   c.fillStyle = color;
   c.beginPath();
@@ -25,6 +24,7 @@ function drawPieSlice(c,centerX, centerY, radius, startAngle, endAngle, color ){
   c.fill();
 }
 
+// var ar = '\u2192';
 // Draws black circle in middle
 function blackCircle() {
   c.beginPath();
@@ -34,8 +34,8 @@ function blackCircle() {
 
   c.beginPath();
   c.fillStyle = "#fff";
-  c.font = "bold 16px Arial";
-  c.fillText("Finish >", xPie-(blackCircleR/5), yPie+3);
+  c.font = "bold 1rem Arial";
+  c.fillText("Finish", xPie+rPie-rPie/3, yPie+2);
   c.stroke();
 }
 
@@ -123,8 +123,6 @@ function animate() {
     }
 
     blackCircle();
-    // drawTestCircle();
-    // blackCircle();
 
     particles.forEach(element => {
        // Four quadrent if statements

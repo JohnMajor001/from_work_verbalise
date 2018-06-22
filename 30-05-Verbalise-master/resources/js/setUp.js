@@ -182,7 +182,6 @@ function showSettings() {
                       <div class='settings-row'>
                         <span>Timer(seconds)</span>
                         <select id='timerSelect'>
-                          <option value='${five}'>${five}</option>
                           <option value='${thirty}'>${thirty}</option>
                           <option value='${fortyfive}'>${fortyfive}</option>
                           <option value='${sixty}'>${sixty}</option>
@@ -217,7 +216,7 @@ function showSettings() {
                         <span>Theme</span>
                         <select id='themes'>
                           <option value='${zero}'>Standard</option>
-
+                          <option value='${one}'>Pop Culture</option>
                         </select>
                       </div>`;
                       /*// <option value='${one}'>Spicy</option>*/
